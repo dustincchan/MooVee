@@ -1,37 +1,37 @@
-# Phase 2: TVShowLists Setup
+# Phase 2: MovieLists Setup
 
 ## Rails
 ### Models
-* TVShowList
+* MovieList
 
 
 ### Controllers
-* Api::TVShowListsController (create, destroy, index, show, update)
+* Api::MovieListsController (create, destroy, index, show, update)
 
 ### Views
 
 
 ## Flux
 ### Views (React Components)
-* /tvshowlists/new.jsx
-* /tvshowlists/show.jsx
-* TVShowListsIndex
-  - TVShowListsIndexItem
-  - TVShowListForm
+* /movielists/new.jsx
+* /movielists/show.jsx
+* MovieListsIndex
+  - MovieListsIndexItem
+  - MovieListForm
 
 
 ### Stores
-* tvShowList.js
+* movieList.js
 
 ### Actions
-* tvShowListActions.js
+* movieListActions.js
 
 
 ### ApiUtil
-* ApiUtil.fetchAllTVShowLists
-* ApiUtil.fetchSingleTVShowList
-* ApiUtil.createTVShowList
-* ApiUtil.editTVShowList
-* ApiUtil.destroyTVShowList
+* ApiUtil.fetchAllMovieLists
+* ApiUtil.fetchSingleMovieList
+* ApiUtil.createMovieList
+* ApiUtil.editMovieList
+* ApiUtil.destroyMovieList
 
 ## Gems/Libraries

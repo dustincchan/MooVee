@@ -1,4 +1,4 @@
-# Phase 3: Flux Architecture and TVShow/TVShowList/Comment CRUD
+# Phase 3: Flux Architecture and Movie/MovieList CRUD
 
 ## Rails
 ### Models
@@ -6,53 +6,44 @@
 
 ### Controllers
 * UsersController
-* TVShowsController
-* TVShowsListsController
+* MoviesController
+* MoviesListsController
 * CommentsController
 
 ### Views
 
 ## Flux
 ### Views (React Components)
-* TVShowsIndex
-  - TVShowsIndexItem
-* TVShowLists Index
-  - TVShowLists IndexItem
+* MoviesIndex
+  - MoviesIndexItem
+* MovieLists Index
+  - MovieLists IndexItem
 
 
 
 ### Stores
 
 ### Actions
-* ApiActions.receiveAllTVShows -> triggered by ApiUtil
-* ApiActions.receiveALLTVShowLists
-* ApiActions.receiveSingleTVShow
-* ApiActions.receiveAllComments -> triggered by ApiUtil
-* ApiActions.deleteComment
-* ApiActions.deleteTVShowList
-* TVShowActions.fetchAllTVShows -> triggers ApiUtil
-* TVShowListActions.fetchAllTVShowLists -> triggers ApiUtil
-* TVShow.fetchSingleTVShow
-* TVShowList.fetchSingleTVShowList
-* TVShowListActions.createTVShowList
-* TVShowListActions.editTVShowList
-* TVShowListActions.destroyTVShowList
-* CommentActions.createComment
-* CommentActions.destroyComment
-* CommentACtions.editComment
+* ApiActions.receiveAllMovies -> triggered by ApiUtil
+* ApiActions.receiveALLMovieLists
+* ApiActions.receiveSingleMovie
+* ApiActions.deleteMovieList
+* MovieActions.fetchAllMovies -> triggers ApiUtil
+* MovieListActions.fetchAllMovieLists -> triggers ApiUtil
+* Movie.fetchSingleMovie
+* MovieList.fetchSingleMovieList
+* MovieListActions.createMovieList
+* MovieListActions.editMovieList
+* MovieListActions.destroyMovieList
 
 ### ApiUtil
-* ApiUtil.fetchAllTVShows
-* ApiUtil.fetchSingleTVShow
-* ApiUtil.fetchAllComments
-* ApiUtil.fetchAllTVShowLists
-* ApiUtil.fetchSingleTVShowList
-* ApiUtil.createTVShowList
-* ApiUtil.createComment
-* ApiUtil.editComment
-* ApiUtil.destroyComment
-* ApiUtil.editTVShowList
-* ApiUtil.destroyTVShowList
+* ApiUtil.fetchAllMovies
+* ApiUtil.fetchSingleMovie
+* ApiUtil.fetchAllMovieLists
+* ApiUtil.fetchSingleMovieList
+* ApiUtil.createMovieList
+* ApiUtil.editMovieList
+* ApiUtil.destroyMovieList
 
 ## Gems/Libraries
 * Flux Dispatcher (npm)

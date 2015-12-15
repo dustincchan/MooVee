@@ -5,18 +5,18 @@
 * html
 * body
 * ul
-* #show
-* #showlist
+* #movie
+* #movielist
 * #comment
-* #show:after
+* #movie:after
 * #comment:after
-* #showlist:after
-* #show > div
-* #showlist > div
-* .show-list-item
-* .showlist-list-item
-* .show-list-item:hover
-* .showlist-list-item:hover
+* #movielist:after
+* #movie > div
+* #movielist > div
+* .movie-list-item
+* .movielist-list-item
+* .movie-list-item:hover
+* .movielist-list-item:hover
 * .comment-list-item
 
 

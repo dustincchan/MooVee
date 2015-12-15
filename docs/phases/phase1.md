@@ -1,31 +1,31 @@
-# Phase 1: Rails Stuff: User Authentication, TVShow Setup
+# Phase 1: Rails Stuff: User Authentication, Movie Setup
 ## Rails
 ### Models
 * User
-* TVShow
+* Movie
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::TVShowsController (index, show)
+* Api::MoviesController (index, show)
 
 ### Views
 * application.html.erb
 
 ## Flux Setup
 ### Views (React Components)
-* /tvshows/index.jsx
-* /tvshows/show.jsx
+* /Movies/index.jsx
+* /Movies/show.jsx
 
 ### Stores
-tvshow.js
+Movie.js
 
 ### Actions
-* tvshowActions.js
+* MovieActions.js
 
 ### ApiUtil
-* ApiUtil.fetchAllTVShows
-* ApiUtil.fetchSingleTVShow
+* ApiUtil.fetchAllMovies
+* ApiUtil.fetchSingleMovie
 
 ## Gems/Libraries
 * BCrypt (Gem)
