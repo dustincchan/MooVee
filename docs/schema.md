@@ -1,6 +1,6 @@
 # Schema Information
 
-## tvshows
+## movies
 column name | data type | details
 ------------|-----------|-----------------------
 id 					| integer		| not null, primary_key
@@ -25,7 +25,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
 
-## tvshowlists
+## movielists
 column name | data type | details
 ------------|-----------|-----------------------
 id 					| integer		| not null, primary_key
@@ -37,7 +37,5 @@ author_id		| integer		| not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|----------------------
 id 					| integer		| not null, primary_key
-body 				| string		| 
+body 				| string		|
 user_id    	| integer		| not null, foreign key (references users), indexed
-
-
