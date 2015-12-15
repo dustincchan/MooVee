@@ -4,12 +4,13 @@ ruby '2.1.2'
 
 gem 'rails', '~> 4.2'
 gem 'annotate'
-gem 'bcrypt'
 gem 'jquery-rails'
 gem 'sqlite3'
 gem 'newrelic_rpm'
 gem 'pg'
 gem 'bcrypt'
+gem 'imdb'
+gem 'omdb'
 
 group :development do
   gem 'pry-rails'
