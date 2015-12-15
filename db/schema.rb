@@ -11,28 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814170745) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "body",       limit: 255, null: false
-    t.integer  "user_id",                null: false
-    t.integer  "link_id",                null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "links", force: :cascade do |t|
-    t.string   "title",      limit: 255, null: false
-    t.string   "url",        limit: 255, null: false
-    t.integer  "user_id",                null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20151215181353) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        limit: 255, null: false
-    t.string   "password_digest", limit: 255, null: false
-    t.string   "session_token",   limit: 255, null: false
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

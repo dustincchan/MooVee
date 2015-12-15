@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'sqlite3'
 gem 'newrelic_rpm'
 gem 'pg'
+gem 'bcrypt'
 
 group :development do
   gem 'pry-rails'
