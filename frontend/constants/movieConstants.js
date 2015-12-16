@@ -1,0 +1,3 @@
+module.exports = {
+  SEARCHDATA_RECEIVED: "SEARCHDATA_RECEIVED"
+};

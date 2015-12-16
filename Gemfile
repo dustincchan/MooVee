@@ -11,6 +11,7 @@ gem 'pg'
 gem 'bcrypt'
 gem 'imdb'
 gem 'omdb'
+gem 'react-rails'
 
 group :development do
   gem 'pry-rails'
