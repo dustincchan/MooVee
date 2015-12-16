@@ -7,8 +7,10 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 var Header = require('./components/header');
 var Container = require('./components/container');
-var ApiUtil = require('.//util/apiUtil');
+var ApiUtil = require('./util/apiUtil');
+var MovieStore = require('./stores/movieList');
 window.ApiUtil = ApiUtil;
+window.MovieStore = MovieStore;
 
 var App = React.createClass({
   render: function() {
