@@ -1,10 +1,21 @@
 var React = require('react');
-
-module.exports = React.createClass({
+var MovieIndexItem = React.createClass({
 	render: function () {
-		<li classname='movie-list-item'>
-			<p>Name: {this.props.movie["trackName"]}</p>
-			<img src={this.props.move["artworkUrl60"]}/>
-		</li>
-	}
+		return (
+				<li className="ui image column">
+					<p className="ui blue label column">{this.props.movie["Title"]}</p>
+
+					<div className="ui move down reveal image">
+						<div className="visible content">
+							<img src={this.props.posterLink} className="ui tertiary raised blue segment"/>
+						</div>
+						<div className="center aligned hidden content">
+							hidden stuff
+						</div>
+					</div>
+				</li>
+			);
+		}
 });
+
+module.exports = MovieIndexItem;

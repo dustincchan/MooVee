@@ -3,11 +3,8 @@ var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
-var root = document.getElementById('content');
 var IndexRoute = ReactRouter.IndexRoute;
 
-var Header = require('./components/header');
-var Container = require('./components/container');
 var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
@@ -17,8 +14,25 @@ window.MovieStore = MovieStore;
 var App = React.createClass({
   render: function() {
     return (
-      <div>
-        <header><h1>MooVee</h1></header>
+
+      <div className="everything">
+        <div className="ui inverted menu">
+          <a className="active item">
+            Home
+          </a>
+          <a className="item">
+            Movie Lists
+          </a>
+          <a className="item">
+            My Movie Lists
+          </a>
+          <a className="right floated item">
+            Sign up!
+          </a>
+          <a className="item">
+            Sign In
+          </a>
+        </div>
         {this.props.children}
       </div>
     );
@@ -32,4 +46,9 @@ var routes = (
 );
 
 
-ReactDOM.render(<Router>{routes}</Router>, root);
+document.addEventListener("DOMContentLoaded", function() {
+  var root = document.getElementById('root');
+  ReactDOM.render(
+    <Router>{routes}</Router>, root
+    );
+});

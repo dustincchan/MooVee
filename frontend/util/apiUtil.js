@@ -1,10 +1,12 @@
 var MovieActions = require('../actions/movieActions.js');
 
 module.exports = {
-  fetchFromItunes: function() {
+  fetchFromIMDB: function(searchString) {
+  	var formattedString = searchString.split(' ').join('+');
     $.ajax({
-      url: 'https://itunes.apple.com/search?media=all&term=lord+of+the+rings',
-      dataType: 'jsonp',
+    	type: "GET",
+      url: "http://www.omdbapi.com/?s=" + formattedString + "&plot=full",
+      dataType: 'json',
       success: function (data) {
         MovieActions.receiveSearchData(data);
       }

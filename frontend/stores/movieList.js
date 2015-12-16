@@ -7,10 +7,8 @@ var _movieList = [];
 
 var resetMovieList = function (movieList) {
   _movieList = [];
-  movieList['results'].forEach(function(movie) {
-    if (movie["kind"] === 'feature-movie') {
-      _movieList.push(movie);
-    }
+  movieList['Search'].forEach(function(movie) {
+    _movieList.push(movie); 
   });
 };
 

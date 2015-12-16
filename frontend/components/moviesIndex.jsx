@@ -2,8 +2,9 @@ var React = require('react');
 var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil');
 var MovieIndexItem = require('./movieIndexItem');
+var Search = require('./movieSearch');
 
-module.exports = React.createClass({
+var MoviesIndex = React.createClass({
   getInitialState: function () {
     return { movies: MovieStore.all() };
   },
@@ -14,7 +15,6 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
-    ApiUtil.fetchFromItunes();
   },
 
   componentWillUnmount: function () {
@@ -23,11 +23,22 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-      <ul>
-        {this.state.movies.map(function (movie) {
-          
-        })}
-      </ul>
+      <div className="ui center aligned three column grid">
+        <Search/>
+        <ul className="ui medium images" id="grid-images">
+          {this.state.movies.map(function (movie) {
+            return (
+              <MovieIndexItem 
+              movie={movie} 
+              key={movie["imdbID"]}
+              posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
+              />
+              )
+          })}
+        </ul>
+      </div>
     );
   }
 });
+
+module.exports = MoviesIndex;
