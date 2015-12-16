@@ -2,10 +2,10 @@ var Dispatcher = require('../dispatcher/dispatcher');
 var MovieConstants = require('../constants/movieConstants');
 
 module.exports = {
-  receiveSearchData: function (data) {
+  receiveSearchData: function (movieData) {
     Dispatcher.dispatch({
       actionType: MovieConstants.SEARCHDATA_RECEIVED,
-      data: data
+      movieData: movieData
     });
   }
 };
