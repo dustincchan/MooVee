@@ -1,8 +1,6 @@
 var React = require('react');
 var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil.js');
-var Nouislider = require('react-nouislider');
-
 var RatingFilter = React.createClass({
 
 	componentDidMount: function () {

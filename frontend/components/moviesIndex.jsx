@@ -25,10 +25,14 @@ var MoviesIndex = React.createClass({
   render: function () {
     return (
       <div className="ui four column grid">
-
         <div className="three column row">
-          <div className="column"><Search/></div>
-          <div className="column"><RatingFilter/></div>
+          <div className="left floated column" id="search"><Search/></div>
+          <div className="right floated column" id="big-search">
+            <div className="ui segment" id="rating">
+            <a className="ui yellow circular label">IMDB Rating: </a>
+            <RatingFilter/></div>
+          </div>
+
         </div>
         
         <ul className="ui right aligned medium images" id="grid-images">

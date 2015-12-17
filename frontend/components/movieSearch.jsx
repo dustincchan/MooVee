@@ -24,13 +24,13 @@ var Search = React.createClass({
 
 	render: function() {
 		return (
-			<div className="ui left floated action input" id="search-box">
+			<div className="ui action input" id="search-box">
 				<input onChange={this.updateInput} 
 				type="text" 
 				placeholder="Search..."
 				onKeyPress={this.handleKeyPress}
 				/>
-				<button onClick={this.executeSearch} className="ui button">Search Movies</button>
+				<button onClick={this.executeSearch} className="ui yellow button">Search Movies</button>
 			</div>
 		);
 	}
