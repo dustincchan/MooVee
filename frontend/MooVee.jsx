@@ -8,31 +8,16 @@ var IndexRoute = ReactRouter.IndexRoute;
 var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
+var NavBar = require('./components/navBar');
+var Sidebar = require('./components/Sidebar');
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 
 var App = React.createClass({
   render: function() {
     return (
-
       <div className="everything">
-        <div className="ui inverted menu">
-          <a className="active item">
-            Home
-          </a>
-          <a className="item">
-            Movie Lists
-          </a>
-          <a className="item">
-            My Movie Lists
-          </a>
-          <a className="right floated item">
-            Sign up!
-          </a>
-          <a className="item">
-            Sign In
-          </a>
-        </div>
+        <NavBar/>
         {this.props.children}
       </div>
     );

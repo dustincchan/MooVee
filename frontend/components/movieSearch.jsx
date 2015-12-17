@@ -24,7 +24,7 @@ var Search = React.createClass({
 
 	render: function() {
 		return (
-			<div className="ui action input" id="search-box">
+			<div className="ui left floated action input" id="search-box">
 				<input onChange={this.updateInput} 
 				type="text" 
 				placeholder="Search..."

@@ -2,7 +2,7 @@ var React = require('react');
 var MovieIndexItem = React.createClass({
 	render: function () {
 		return (
-				<li className="ui image column">
+				<li className="ui image column" id="image-wrapper">
 					<p className="ui blue label column">{this.props.movie["Title"]}</p>
 
 					<div className="ui move down reveal image">

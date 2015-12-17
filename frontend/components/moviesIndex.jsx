@@ -3,6 +3,7 @@ var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil');
 var MovieIndexItem = require('./movieIndexItem');
 var Search = require('./movieSearch');
+var RatingFilter = require('./ratingFilter');
 
 var MoviesIndex = React.createClass({
   getInitialState: function () {
@@ -23,9 +24,14 @@ var MoviesIndex = React.createClass({
 
   render: function () {
     return (
-      <div className="ui center aligned three column grid">
-        <Search/>
-        <ul className="ui medium images" id="grid-images">
+      <div className="ui four column grid">
+
+        <div className="three column row">
+          <div className="column"><Search/></div>
+          <div className="column"><RatingFilter/></div>
+        </div>
+        
+        <ul className="ui right aligned medium images" id="grid-images">
           {this.state.movies.map(function (movie) {
             return (
               <MovieIndexItem 
@@ -36,6 +42,7 @@ var MoviesIndex = React.createClass({
               )
           })}
         </ul>
+
       </div>
     );
   }
