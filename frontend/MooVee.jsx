@@ -9,7 +9,6 @@ var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
-var Sidebar = require('./components/Sidebar');
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 

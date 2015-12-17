@@ -30,7 +30,7 @@ var Search = React.createClass({
 				placeholder="Search..."
 				onKeyPress={this.handleKeyPress}
 				/>
-				<button onClick={this.executeSearch} className="ui yellow button">Search Movies</button>
+				<button onClick={this.executeSearch} className="ui yellow button" id="search-button">Search Movies</button>
 			</div>
 		);
 	}

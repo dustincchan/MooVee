@@ -7,5 +7,12 @@ module.exports = {
       actionType: MovieConstants.SEARCHDATA_RECEIVED,
       movieData: movieData
     });
+  },
+
+  receiveSingleMovie: function (singleMovieData) {
+  	Dispatcher.dispatch({
+  		actionType: MovieConstants.SINGLEMOVIEDATA_RECEIVED,
+  		singleMovieData: singleMovieData
+  	});
   }
 };

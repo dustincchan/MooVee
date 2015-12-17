@@ -6,20 +6,19 @@ var MovieIndexItem = React.createClass({
 	},
 
 	handlePosterClicked: function () {
-		$('.shape').shape('flip right');
+		$('#'+this.props.movie["imdbID"]).shape('flip up');
 	},
 
 	render: function () {
 		return (
 				<li className="ui image column">
 					<p className="ui blue label column" id="blue-label">{this.props.movie["Title"]}</p>
-
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
 						      <div className="ui card">
 						        <div className="image">
-						          <img onClick={this.handlePosterClicked} src={this.props.posterLink}/>
+						          <img src={this.props.posterLink} onClick={this.handlePosterClicked}/>
 						        </div>
 						        <div className="content">
 						          <div className="header">{this.props.movie["Title"]}</div>
@@ -29,19 +28,19 @@ var MovieIndexItem = React.createClass({
 						        </div>
 						      </div>
 						    </div>
-						    <div className="side" onClick={this.handlePosterClicked}>
+						    <div className="side">
 						      <div className="ui card">
-						        <div className="content">
+						        <div className="content" onClick={this.handlePosterClicked}>
 						          <a className="header">Description</a>
 						          <div className="description">
-						            Movie dsecription goes here. blah blah blah blah blah blah blabh balh sdlkfjsldkfjoeij
+						            {this.props.plot}
 						          </div>
-						        </div>
-						        <div className="extra content">
-						          <a>
-						            <i className="user icon"></i>
-						            22 Friends
-						          </a>
+						          <br/>
+						          <div className="content">
+						          	<div className="ui header">More Info</div>
+						          	<div className="director"> Directed by: {this.props.movie["Director"]} </div>
+						          	<div className="cast"> Cast: {this.props.movie["Actors"]} </div>
+						          </div>
 						        </div>
 						      </div>
 						    </div>

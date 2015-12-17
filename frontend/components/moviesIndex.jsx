@@ -29,7 +29,7 @@ var MoviesIndex = React.createClass({
           <div className="left floated column" id="search"><Search/></div>
           <div className="right floated column" id="big-search">
             <div className="ui segment" id="rating">
-            <a className="ui yellow circular label">IMDB Rating: </a>
+            <a className="ui yellow circular label" id="imdb-label">Minimum IMDB Rating: </a>
             <RatingFilter/></div>
           </div>
 
@@ -41,6 +41,7 @@ var MoviesIndex = React.createClass({
               <MovieIndexItem 
               movie={movie} 
               key={movie["imdbID"]}
+              plot={movie["Plot"]}
               posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
               />
               )

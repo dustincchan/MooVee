@@ -12,16 +12,32 @@ var resetMovieList = function (movieList) {
   });
 };
 
+var addDescription = function (movieList) {
+  fullMovieList = [];
+  _movieList.forEach(function(movie) {
+    movieId = movie["imdbId"];
+
+  });
+};
+
+var addMovieToStore = function (singleMovie) {
+  _movieList.push(singleMovie);
+}
+
 MovieStore.all = function () {
+  addDescription(_movieList);
   return _movieList.slice(0);
 };
+
 
 MovieStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case MovieConstants.SEARCHDATA_RECEIVED:
       resetMovieList(payload.movieData);
+      break;
+    case MovieConstants.SINGLEMOVIEDATA_RECEIVED:
+      addMovieToStore(payload.singleMovieData);
   }
-
   MovieStore.__emitChange();
 };
 
