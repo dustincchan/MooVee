@@ -3,8 +3,8 @@ var MovieIndexItem = React.createClass({
 
 	componentDidMount: function () {
 		$('.shape').shape();
+		$('#movie-poster').transition('horizontal flip');
 	},
-
 
 	handlePosterClicked: function () {
 		$('#'+this.props.movie["imdbID"]).shape('flip right');
@@ -13,24 +13,25 @@ var MovieIndexItem = React.createClass({
 	render: function () {
 		return (
 				<li className="ui image column">
+					<p className="ui blue label column" id="blue-label">{this.props.movie["Title"]}</p>
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
 						      <div className="ui card">
 						        <div className="image">
-						          <img id={this.props.movie["imdbID"]} src={this.props.posterLink} onClick={this.handlePosterClicked}/>
+						          <img id="movie-poster" src={this.props.posterLink} onClick={this.handlePosterClicked}/>
 						        </div>
 						        <div className="content">
-						          <div id="movie-title" className="header">{this.props.movie["Title"]}</div>
+						          <div className="header">{this.props.movie["Title"]}</div>
 						        </div>
 						      </div>
 						    </div>
 						    <div className="side">
-						      <div className="ui card" id="card-back">
+						      <div className="ui card">
 						        <div className="content" onClick={this.handlePosterClicked}>
 						          <a className="header">Description</a>
 						          <div className="description">
-						         	{this.props.plot}
+						            {this.props.plot}
 						          </div>
 						          <br/>
 						          <div className="content">

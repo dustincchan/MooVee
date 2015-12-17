@@ -35,13 +35,13 @@ var MoviesIndex = React.createClass({
 
         </div>
         
-        <ul className="ui right aligned medium images" id="grid-images">
+        <ul className="ui medium images" id="grid-images">
           {this.state.movies.map(function (movie) {
             return (
               <MovieIndexItem 
               movie={movie} 
               key={movie["imdbID"]}
-              plot={movie["Plot"]}
+              plot={movie["Plot"].length > 700 ? movie["Plot"].slice(0,700) + "..." : movie["Plot"]}
               posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
               />
               )
