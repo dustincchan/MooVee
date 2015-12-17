@@ -14,5 +14,18 @@ module.exports = {
   		actionType: MovieConstants.SINGLEMOVIEDATA_RECEIVED,
   		singleMovieData: singleMovieData
   	});
+  },
+
+  resetStore: function () {
+    Dispatcher.dispatch({
+      actionType: MovieConstants.RESET_STORE
+    });
+  },
+
+  receiveRatingChange: function (rating) {
+    Dispatcher.dispatch({
+      actionType: MovieConstants.RATING_CHANGED,
+      rating: rating
+    });
   }
 };

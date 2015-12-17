@@ -4,29 +4,39 @@ var MovieConstants = require('../constants/movieConstants');
 var MovieStore = new Store(AppDispatcher);
 
 var _movieList = [];
+var _filteredMovieList = _movieList.slice(0);
+var ratingTooHigh = false;
 
-var resetMovieList = function (movieList) {
+var resetMovieList = function () {
   _movieList = [];
-  movieList['Search'].forEach(function(movie) {
-    _movieList.push(movie); 
-  });
-};
-
-var addDescription = function (movieList) {
-  fullMovieList = [];
-  _movieList.forEach(function(movie) {
-    movieId = movie["imdbId"];
-
-  });
+  _filteredMovieList = [];
 };
 
 var addMovieToStore = function (singleMovie) {
   _movieList.push(singleMovie);
 }
 
+var filterByRating = function (imdbRating) {
+  newMovieList = [];
+  for (var i = 0; i < _movieList.length; i++) {
+    currentMovie = _movieList[i];
+    movieRating = parseFloat(currentMovie["imdbRating"]);
+    if (movieRating >= imdbRating) {
+      newMovieList.push(currentMovie);
+    }
+  }
+  _filteredMovieList = newMovieList;
+  if (_filteredMovieList.length === 0) {
+    ratingTooHigh = true;
+  }
+}
+
 MovieStore.all = function () {
-  addDescription(_movieList);
+  if (_filteredMovieList.length > 0 || ratingTooHigh === true) {
+    return _filteredMovieList
+  } else {
   return _movieList.slice(0);
+  }
 };
 
 
@@ -35,8 +45,15 @@ MovieStore.__onDispatch = function (payload) {
     case MovieConstants.SEARCHDATA_RECEIVED:
       resetMovieList(payload.movieData);
       break;
+    case MovieConstants.RESET_STORE:
+      resetMovieList();
+      break;
     case MovieConstants.SINGLEMOVIEDATA_RECEIVED:
       addMovieToStore(payload.singleMovieData);
+      break;
+    case MovieConstants.RATING_CHANGED:
+      filterByRating(payload.rating);
+      break;
   }
   MovieStore.__emitChange();
 };

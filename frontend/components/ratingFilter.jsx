@@ -1,15 +1,21 @@
 var React = require('react');
 var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil.js');
+var MovieActions = require('../actions/movieActions');
 var RatingFilter = React.createClass({
 
 	componentDidMount: function () {
 		$('.rating')
 			.rating({
-				initialRating: 3,
+				initialRating: 0,
 				maxRating: 10
 			})
+		$('.rating')
+			.rating('setting', 'onRate', function(value) {
+				MovieActions.receiveRatingChange(value);
+			});
 	},
+
 
 	render: function() {
 		return (

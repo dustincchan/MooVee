@@ -25,7 +25,7 @@ var MoviesIndex = React.createClass({
   render: function () {
     return (
       <div className="ui four column grid">
-        <div className="three column row">
+        <div className="three column row" id="search-bar">
           <div className="left floated column" id="search"><Search/></div>
           <div className="right floated column" id="big-search">
             <div className="ui segment" id="rating">

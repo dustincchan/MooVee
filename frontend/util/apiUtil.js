@@ -1,6 +1,9 @@
 var MovieActions = require('../actions/movieActions.js');
 
 module.exports = {
+  resetStore: function() {
+    MovieActions.resetStore();
+  },
 
   fetchFromIMDB: function(searchString) {
   	var formattedString = searchString.split(' ').join('+');

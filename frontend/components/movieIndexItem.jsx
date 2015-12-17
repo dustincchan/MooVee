@@ -3,10 +3,11 @@ var MovieIndexItem = React.createClass({
 
 	componentDidMount: function () {
 		$('.shape').shape();
+		$('#movie-poster').transition('horizontal flip');
 	},
 
 	handlePosterClicked: function () {
-		$('#'+this.props.movie["imdbID"]).shape('flip up');
+		$('#'+this.props.movie["imdbID"]).shape('flip right');
 	},
 
 	render: function () {
@@ -18,13 +19,10 @@ var MovieIndexItem = React.createClass({
 						    <div className="side active">
 						      <div className="ui card">
 						        <div className="image">
-						          <img src={this.props.posterLink} onClick={this.handlePosterClicked}/>
+						          <img id="movie-poster" src={this.props.posterLink} onClick={this.handlePosterClicked}/>
 						        </div>
 						        <div className="content">
 						          <div className="header">{this.props.movie["Title"]}</div>
-						          <div className="description">
-						            Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-						          </div>
 						        </div>
 						      </div>
 						    </div>

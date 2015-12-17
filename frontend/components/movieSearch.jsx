@@ -9,6 +9,7 @@ var Search = React.createClass({
 	},
 
 	executeSearch: function () {
+		ApiUtil.resetStore()
 		ApiUtil.fetchFromIMDB(this.state.inputVal);
 	},
 
