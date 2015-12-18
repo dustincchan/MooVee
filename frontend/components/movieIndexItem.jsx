@@ -12,7 +12,7 @@ var MovieIndexItem = React.createClass({
 
 	render: function () {
 		return (
-				<li className="ui image column">
+				<li id="image-column" className="ui image column">
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">

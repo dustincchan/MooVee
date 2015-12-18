@@ -12,6 +12,7 @@
 
 .everything {
 	background: #333333;
+	height: 100%;
 }
 
 #grid-images {
@@ -72,9 +73,19 @@
 
 }
 
+.login-fields {
+	position: relative;
+	top: 30px;
+}
+
 #search {
 	position: relative;
 	top: 8px;
+}
+
+#signup-button {
+	position: relative;
+	top: 65px;
 }
 
 
@@ -94,8 +105,17 @@
 
 #sign-up-background {
 	height: 100%;
+	width: 100%;
 }
 
 #login-box {
 	background: white;
+	height: 30%;
+	width: 30%;
+	position: relative;
+	top: 10%;
+}
+
+#root {
+	height: 1000px;
 }

@@ -6,17 +6,18 @@ var SignUp = React.createClass({
 			<div id="sign-up-background" className="ui one column stackable center aligned page grid">
 				<div id="login-box" className="column seven wide">
 					<div className="ui form">
-					  <div className="fields">
+					  <div className="login-fields">
 					    <div className="field">
-					      <label>Username</label>
+					      <label>New User</label>
 					      <input type="text" placeholder="Username"/>
 					    </div>
 					    <div className="field">
-					      <label>Password</label>
+					      <label>New Password</label>
 					      <input type="password" placeholder="Password"/>
 					    </div>
 					  </div>
 					</div>
+					<button id="signup-button" className="positive ui button">Sign Up!</button>
 				</div>
 			</div>
 		);
