@@ -3,7 +3,7 @@ var React = require('react');
 var NavBar = React.createClass({
   render: function () {
     return(
-    <div className="ui inverted menu">
+    <div className="ui inverted huge menu">
       <a className="active item">Home</a>
       <a className="item">Movie Lists</a>
       <a className="item">My Movie Lists</a>

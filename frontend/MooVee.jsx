@@ -9,6 +9,7 @@ var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
+var SignIn = require('./components/signIn');
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 
