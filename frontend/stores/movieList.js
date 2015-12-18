@@ -26,6 +26,7 @@ var filterByRating = function (imdbRating) {
     }
   }
   _filteredMovieList = newMovieList;
+  ratingTooHigh = false;
   if (_filteredMovieList.length === 0) {
     ratingTooHigh = true;
   }

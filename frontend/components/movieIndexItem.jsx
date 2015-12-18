@@ -12,7 +12,7 @@ var MovieIndexItem = React.createClass({
 
 	render: function () {
 		return (
-				<li id="image-column" className="ui image column">
+				<li id="image-column" onClick={this.handlePosterClicked} className="ui image column">
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
@@ -20,16 +20,16 @@ var MovieIndexItem = React.createClass({
 						        <div className="image">
 						          <img className="movie-poster" 
 						          		id={this.props.movie["imdbID"]} 
-						          		src={this.props.posterLink} onClick={this.handlePosterClicked}/>
+						          		src={this.props.posterLink}/>
 						        </div>
-						        <div className="content">
-						          <div id="movie-title" className="header">{this.props.movie["Title"]}</div>
+						        <div id="movie-title" className="content">
+						          <div className="header">{this.props.movie["Title"]}</div>
 						        </div>
 						      </div>
 						    </div>
 						    <div className="side">
 						      <div className="ui card" id="card-back">
-						        <div className="content" onClick={this.handlePosterClicked}>
+						        <div className="content">
 						          <a className="header">Description</a>
 						          <div className="description">
 						         	{this.props.plot}
