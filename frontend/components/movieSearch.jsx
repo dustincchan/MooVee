@@ -9,12 +9,12 @@ var Search = React.createClass({
 	},
 
 	executeSearch: function () {
-		ApiUtil.resetStore()
+		ApiUtil.resetStore();
 		ApiUtil.fetchFromIMDB(this.state.inputVal);
 	},
 
 	updateInput: function (event) {
-		this.setState({ inputVal: event.currentTarget.value })
+		this.setState({ inputVal: event.currentTarget.value });
 	},
 
 	handleKeyPress: function (event) {

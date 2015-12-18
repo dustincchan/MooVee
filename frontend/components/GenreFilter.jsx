@@ -1,4 +1,4 @@
-var React = require('react')
+var React = require('react');
 var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil.js');
 var MovieActions = require('../actions/movieActions');

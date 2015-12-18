@@ -9,7 +9,7 @@ var RatingFilter = React.createClass({
 			.rating({
 				initialRating: 0,
 				maxRating: 10
-			})
+			});
 		$('.rating')
 			.rating('setting', 'onRate', function(value) {
 				MovieActions.receiveRatingChange(value);

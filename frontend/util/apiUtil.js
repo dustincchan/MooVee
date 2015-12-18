@@ -23,8 +23,8 @@ module.exports = {
             success: function (data) {
               MovieActions.receiveSingleMovie(data);
             }
-          })
-        }.bind(this))
+          });
+        }.bind(this));
       }
     });
   },

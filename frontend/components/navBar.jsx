@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var Route = require('react-router').Route;
-var Navigation = require('react-router').Navigation
+var Navigation = require('react-router').Navigation;
 
 var NavBar = React.createClass({
   render: function () {

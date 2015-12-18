@@ -14,7 +14,7 @@ var resetMovieList = function () {
 
 var addMovieToStore = function (singleMovie) {
   _movieList.push(singleMovie);
-}
+};
 
 var filterByRating = function (imdbRating) {
   newMovieList = [];
@@ -30,11 +30,11 @@ var filterByRating = function (imdbRating) {
   if (_filteredMovieList.length === 0) {
     ratingTooHigh = true;
   }
-}
+};
 
 MovieStore.all = function () {
   if (_filteredMovieList.length > 0 || ratingTooHigh === true) {
-    return _filteredMovieList
+    return _filteredMovieList;
   } else {
   return _movieList.slice(0);
   }
