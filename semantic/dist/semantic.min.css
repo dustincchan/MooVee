@@ -16,7 +16,8 @@
 }
 
 #grid-images {
-	background-color: rgba(0,0,51,0.2);
+	background: #333333;
+	height: 100%;
 }
 
 #movie-title {

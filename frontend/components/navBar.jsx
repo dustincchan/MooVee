@@ -4,10 +4,6 @@ var Route = require('react-router').Route;
 var Navigation = require('react-router').Navigation
 
 var NavBar = React.createClass({
-  homeButtonClicked: function () {
-    
-  },
-
   render: function () {
     return(
     <div className="ui inverted huge menu">
@@ -15,7 +11,7 @@ var NavBar = React.createClass({
       <a className="item">Movie Lists</a>
       <a className="item">My Movie Lists</a>
       <a href="#/users/new/" className="right floated item">Sign up!</a>
-      <a className="item">Sign In</a>
+      <a href="#/session/new" className="item">Log In</a>
     </div>
       );
   }

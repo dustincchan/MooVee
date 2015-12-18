@@ -10,6 +10,7 @@ var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
 var SignUp = require('./components/SignUp');
+var LogIn = require('./components/LogIn');
 var GenreFilter = require('./components/GenreFilter');
 
 window.ApiUtil = ApiUtil;
@@ -30,6 +31,7 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={MoviesIndex}/>
     <Route path="users/new" component={SignUp}/>
+    <Route path="session/new" component={LogIn}/>
   </Route>
 );
 
