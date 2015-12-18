@@ -4,7 +4,7 @@ var SignUp = React.createClass({
 	render: function () {
 		return (
 			<div id="sign-up-background" className="ui one column stackable center aligned page grid">
-				<div className="column seven wide">
+				<div id="login-box" className="column seven wide">
 					<div className="ui form">
 					  <div className="fields">
 					    <div className="field">
