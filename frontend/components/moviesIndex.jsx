@@ -4,6 +4,7 @@ var ApiUtil = require('../util/apiUtil');
 var MovieIndexItem = require('./movieIndexItem');
 var Search = require('./movieSearch');
 var RatingFilter = require('./ratingFilter');
+var GenreFilter = require('./GenreFilter');
 
 var MoviesIndex = React.createClass({
   getInitialState: function () {
@@ -27,6 +28,9 @@ var MoviesIndex = React.createClass({
       <div className="ui four column grid">
         <div className="three column row" id="search-bar">
           <div className="left floated column" id="search"><Search/></div>
+          <div className="column">
+            <GenreFilter/>
+          </div>
           <div className="right floated column" id="big-search">
             <div className="ui segment" id="rating">
             <a className="ui yellow circular label" id="imdb-label">Minimum IMDB Rating: </a>

@@ -9,7 +9,9 @@ var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
-var SignIn = require('./components/signIn');
+var SignUp = require('./components/SignUp');
+var GenreFilter = require('./components/GenreFilter');
+
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 
@@ -27,6 +29,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={MoviesIndex}/>
+    <Route path="users/new" component={SignUp}/>
   </Route>
 );
 
