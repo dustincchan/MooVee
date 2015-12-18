@@ -85,3 +85,7 @@
 .genre-field {
 	color: white;
 }
+
+#sign-up-background {
+	min-height: 500px;
+}
