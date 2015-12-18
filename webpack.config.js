@@ -4,9 +4,7 @@ module.exports = {
   entry: path.join(__dirname, 'frontend', 'MooVee.jsx'),
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: "bundle.js",
-    devtoolModuleFilenameTemplate: '[resourcePath]',
-    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
+    filename: "bundle.js"
   },
   module: {
     loaders: [
@@ -20,7 +18,6 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-maps',
   resolve: {
     extensions: ["", ".js", ".jsx" ]
   }
