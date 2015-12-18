@@ -10,7 +10,7 @@ module.exports = {
     var tempMoves = [];
     $.ajax({
     	type: "GET",
-      url: "http://www.omdbapi.com/?s=" + formattedString + "&plot=full",
+      url: "https://www.omdbapi.com/?s=" + formattedString + "&plot=full",
       dataType: 'json',
       success: function (data) {
         data['Search'].forEach(function(movie) {
@@ -18,7 +18,7 @@ module.exports = {
 
           $.ajax({
             type: "GET",
-            url: "http://www.omdbapi.com/?i=" + imdbID + "&plot=full&r=json",
+            url: "https://www.omdbapi.com/?i=" + imdbID + "&plot=full&r=json",
             dataType: 'json',
             success: function (data) {
               MovieActions.receiveSingleMovie(data);
