@@ -40,6 +40,7 @@ var MoviesIndex = React.createClass({
         </div>
         
         <ul className="ui medium images" id="grid-images">
+
           {this.state.movies.map(function (movie) {
             return (
               <MovieIndexItem 
@@ -51,7 +52,6 @@ var MoviesIndex = React.createClass({
               )
           })}
         </ul>
-
       </div>
     );
   }

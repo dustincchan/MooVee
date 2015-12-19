@@ -5,6 +5,13 @@ var MovieActions = require('../actions/movieActions');
 
 var GenreFilter = React.createClass({
 
+	componentDidMount: function () {
+		$('.ui.form').form({
+			fields: {
+				fruit: 'empty'
+			}
+		})
+	},
 
 	render: function () {
 		return (

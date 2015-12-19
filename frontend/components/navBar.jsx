@@ -7,10 +7,11 @@ var NavBar = React.createClass({
   render: function () {
     return(
     <div className="ui inverted huge menu">
-      <a href="#" className="active item">Home</a>
-      <a className="item">Movie Lists</a>
+      <a href="#" className="ui active item">Home</a>
+      <a href="#/lists/" className="item">Movie Lists</a>
       <a className="item">My Movie Lists</a>
-      <a href="#/users/new/" className="right floated item">Sign up!</a>
+      <a href="#/session/new" className="right floated item">Guest Log In</a>
+      <a href="#/users/new" className="item">Sign up!</a>
       <a href="#/session/new" className="item">Log In</a>
     </div>
       );

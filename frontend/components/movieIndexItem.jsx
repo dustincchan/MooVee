@@ -1,10 +1,11 @@
 var React = require('react');
+var MovieStore = require('../stores/movieList');
+var InfoButton = require('./InfoButton')
 var MovieIndexItem = React.createClass({
 
 	componentDidMount: function () {
 		$('.shape').shape();
 	},
-
 
 	handlePosterClicked: function () {
 		$('#'+this.props.movie["imdbID"]).shape('flip right');
@@ -12,23 +13,27 @@ var MovieIndexItem = React.createClass({
 
 	render: function () {
 		return (
-				<li id="image-column" onClick={this.handlePosterClicked} className="ui image column">
+				<li id="image-column" className="ui image column">
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
 						      <div className="ui card" id="card-front">
 						        <div className="image">
-						          <img className="movie-poster" 
-						          		id={this.props.movie["imdbID"]} 
-						          		src={this.props.posterLink}/>
+						        	<div className="poster and info-button">
+							          <img className="movie-poster" 
+							          		onClick={this.handlePosterClicked}
+							          		id={this.props.movie["imdbID"]} 
+							          		src={this.props.posterLink}/>
+							          <InfoButton/>
+							         </div>
 						        </div>
 						        <div id="movie-title" className="content">
-						          <div className="header">{this.props.movie["Title"]}</div>
+						          <div onClick={this.handlePosterClicked} className="header">{this.props.movie["Title"]}</div>
 						        </div>
 						      </div>
 						    </div>
 						    <div className="side">
-						      <div className="ui card" id="card-back">
+						      <div onClick={this.handlePosterClicked} className="ui card" id="card-back">
 						        <div className="content">
 						          <a className="header">Description</a>
 						          <div className="description">
