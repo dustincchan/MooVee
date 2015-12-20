@@ -24,8 +24,8 @@ var MovieIndexItem = React.createClass({
 							          		onClick={this.handlePosterClicked}
 							          		id={this.props.movie["imdbID"]} 
 							          		src={this.props.posterLink}/>
-							          <InfoButton/>
-							         </div>
+							          <InfoButton className="info-button"	movieID={this.props.movie["imdbID"]}/>
+							        </div>
 						        </div>
 						        <div id="movie-title" className="content">
 						          <div onClick={this.handlePosterClicked} className="header">{this.props.movie["Title"]}</div>
@@ -37,13 +37,13 @@ var MovieIndexItem = React.createClass({
 						        <div className="content">
 						          <a className="header">Description</a>
 						          <div className="description">
-						         	{this.props.plot}
+						         	<i>{this.props.plot}</i>
 						          </div>
 						          <br/>
 						          <div className="content">
 						          	<div className="ui header">More Info</div>
-						          	<div className="director"> Directed by: {this.props.movie["Director"]} </div>
-						          	<div className="cast"> Cast: {this.props.movie["Actors"]} </div>
+						          	<div className="director"> <b>Directed by:</b> <i>{this.props.movie["Director"]}</i> </div>
+						          	<div className="cast"> <b>Cast:</b> <i>{this.props.movie["Actors"]}</i> </div>
 						          </div>
 						        </div>
 						      </div>
