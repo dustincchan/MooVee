@@ -1,0 +1,2 @@
+module MovieListItemsHelper
+end

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215192554) do
+ActiveRecord::Schema.define(version: 20151220010221) do
+
+  create_table "blacklisted_movie_lists", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "imdbID",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "blacklisted_movie_lists", ["user_id"], name: "index_blacklisted_movie_lists_on_user_id"
+
+  create_table "movie_list_items", force: :cascade do |t|
+    t.string   "imdbID",        null: false
+    t.integer  "movie_list_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "movie_list_items", ["movie_list_id"], name: "index_movie_list_items_on_movie_list_id"
 
   create_table "movie_lists", force: :cascade do |t|
     t.integer  "author_id",   null: false
@@ -27,5 +45,14 @@ ActiveRecord::Schema.define(version: 20151215192554) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "watched_movie_lists", force: :cascade do |t|
+    t.string   "imdbID",     null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "watched_movie_lists", ["user_id"], name: "index_watched_movie_lists_on_user_id"
 
 end
