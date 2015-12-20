@@ -1,3 +1,4 @@
+//react and react router
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
@@ -5,12 +6,19 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
+
+//flux
 var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
-var SignUp = require('./components/SignUp');
-var LogIn = require('./components/LogIn');
+
+//users
+var LogIn = require('./components/users/LogIn');
+var SignUp = require('./components/users/SignUp');
+
+
+//movie lists
 var MovieLists = require('./components/lists/MovieLists');
 var GenreFilter = require('./components/GenreFilter');
 
