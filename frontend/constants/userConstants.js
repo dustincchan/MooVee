@@ -1,0 +1,4 @@
+module.exports = {
+	LOGIN_RECEIVED: "LOGIN_RECEIVED",
+	USER_RECEIVED: "USER_RECEIVED"
+};

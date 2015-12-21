@@ -1,5 +1,6 @@
 var React = require('react');
 var MovieStore = require('../stores/movieList');
+var UserStore = require('../stores/UserStore');
 var ApiUtil = require('../util/apiUtil');
 var MovieIndexItem = require('./movieIndexItem');
 var Search = require('./movieSearch');
@@ -8,12 +9,13 @@ var GenreFilter = require('./GenreFilter');
 
 var MoviesIndex = React.createClass({
   getInitialState: function () {
-    return { movies: MovieStore.all() };
+    return { movies: MovieStore.all(), };
   },
 
   _onChange: function () {
     this.setState({ movies: MovieStore.all() });
   },
+
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);

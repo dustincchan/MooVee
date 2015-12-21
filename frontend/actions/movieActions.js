@@ -27,5 +27,9 @@ module.exports = {
       actionType: MovieConstants.RATING_CHANGED,
       rating: rating
     });
+  },
+
+  receiveUserLogin: function (data) {
+    debugger;
   }
 };

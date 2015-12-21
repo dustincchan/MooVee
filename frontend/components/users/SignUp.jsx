@@ -1,7 +1,40 @@
 var React = require('react');
+var ApiUtil = require('../../util/apiUtil');
+var UserStore = require('../../stores/UserStore');
 
 var SignUp = React.createClass({
-	getUsernameValue: function() {},
+	getInitialState: function() {
+		return {
+			username: "",
+			password: ""
+		};
+	},
+
+	componentDidMount: function () {
+		this.userListener = UserStore.addListener(this._userChange);
+	},
+
+	_userChange: function () {
+		this.props.history.pushState(null, "/");
+	},
+
+	handleUserChange: function(event) {
+		this.setState({username: event.target.value});
+	},
+
+	handlePassChange: function(event) {
+		this.setState({password: event.target.value});
+	},
+
+	Signup: function () {
+		ApiUtil.SignUp({username: this.state.username, password: this.state.password})
+	},
+
+	handleKeyPress: function (event) {
+		if (event.charCode === 13) {
+			this.Signup();
+		}
+	},
 
 	render: function () {
 		return (
@@ -15,14 +48,22 @@ var SignUp = React.createClass({
 					  <div className="login-fields">
 					    <div className="field">
 					      <label className="ui pointing below blue basic label">New User</label>
-					      <input id="username-field" type="text" placeholder="Username"/>
+					      <input 
+					      	onChange={this.handleUserChange} 
+					      	id="username-field" 
+					      	type="text" 
+					      	placeholder="Username"/>
 					    </div>
 					    <div className="field">
 					      <label className="ui pointing below blue basic label">New Password</label>
-					      <input id="password-field" type="password" placeholder="Password"/>
+					      <input 
+					      	onChange={this.handlePassChange} 
+					      	onKeyPress={this.handleKeyPress}
+					      	id="password-field" 
+					      	type="password" placeholder="Password"/>
 					    </div>
 					  </div>
-					  <button onClick={this.handleSubmit} id="signup-button" className="positive ui button">Sign Up!</button>
+					  <button onClick={this.Signup} id="signup-button" className="positive ui button">Sign Up!</button>
 					</div>
 				</div>
 			</div>

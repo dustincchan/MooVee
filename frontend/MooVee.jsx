@@ -7,9 +7,10 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
 
-//flux
+//flux/stores
 var ApiUtil = require('./util/apiUtil');
 var MovieStore = require('./stores/movieList');
+var UserStore = require('./stores/UserStore');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
 
@@ -24,6 +25,7 @@ var GenreFilter = require('./components/GenreFilter');
 
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
+window.UserStore = UserStore
 
 var App = React.createClass({
   render: function() {
@@ -41,7 +43,6 @@ var routes = (
     <IndexRoute component={MoviesIndex}/>
     <Route path="users/new" component={SignUp}/>
     <Route path="session/new" component={LogIn}/>
-    <Route path="lists" component={MovieLists}/>
   </Route>
 );
 
