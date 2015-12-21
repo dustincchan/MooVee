@@ -33,8 +33,6 @@ var filterByRating = function (imdbRating) {
 };
 
 MovieStore.all = function () {
-  console.log(_movieList);
-  console.log(_filteredMovieList);
   if (_filteredMovieList.length > 0 || ratingTooHigh === true) {
     return _filteredMovieList.slice(0);
   } else if (_movieList.length === 0 || (_filteredMovieList.length === 0 )) {
