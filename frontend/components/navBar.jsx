@@ -13,6 +13,10 @@ var NavBar = React.createClass({
     this.userListener = UserStore.addListener(this._userChanged);
   },
 
+  guestLogin: function () {
+    console.log("guestLogin");
+  },
+
   _userChanged: function () {
     this.setState({currentUser: UserStore.currentUser()})
   },
@@ -24,7 +28,7 @@ var NavBar = React.createClass({
           <a href="#" className="ui active item">Home</a>
           <a href="#/lists/" className="item">Movie Lists</a>
           <a className="item">My Movie Lists</a>
-          <a href="#/session/new" className="right floated item">Guest Log In</a>
+          <a onClick={this.guestLogin} className="right floated item">Guest Log In</a>
           <a href="#/users/new" className="item">Sign up!</a>
           <a href="#/session/new" className="item">Log In</a>
         </div>
