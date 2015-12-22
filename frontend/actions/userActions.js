@@ -9,6 +9,20 @@ module.exports = {
 		})
 	},
 
+	receiveBadLogin: function (message) {
+		Dispatcher.dispatch({
+			actionType: UserConstants.BAD_LOGIN,
+			message: message
+		})
+	},
+
+	receiveBadUserParams: function (message) {
+		Dispatcher.dispatch({
+			actionType: UserConstants.BAD_USER,
+			message: message
+		})
+	},
+
 	receiveNewUser: function (userData) {
 		Dispatcher.dispatch({
 			actionType: UserConstants.USER_RECEIVED,

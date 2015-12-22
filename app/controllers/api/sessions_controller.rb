@@ -12,7 +12,7 @@
 			sign_in(user)
 			render json: user
 		else
-			render json: ["Invalid username or password"]
+			render json: "Invalid username or password"
 		end
 	end
 

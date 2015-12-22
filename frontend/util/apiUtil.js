@@ -40,6 +40,9 @@ module.exports = {
       data: {user: params},
       success: function (data) {
         UserActions.receiveNewUser(data);
+      },
+      error: function (e) {
+        UserActions.receiveBadUserParams(e["responseText"])
       }
     })
   },
@@ -51,6 +54,9 @@ module.exports = {
       data: {user: params},
       success: function (data) {
         UserActions.receiveUserLogin(data);
+      },
+      error: function (e) {
+        UserActions.receiveBadLogin(e["responseText"])
       }
     })
   },

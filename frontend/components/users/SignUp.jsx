@@ -6,7 +6,8 @@ var SignUp = React.createClass({
 	getInitialState: function() {
 		return {
 			username: "",
-			password: ""
+			password: "",
+			error: ""
 		};
 	},
 
@@ -15,7 +16,10 @@ var SignUp = React.createClass({
 	},
 
 	_userChange: function () {
-		this.props.history.pushState(null, "/");
+		this.setState({ error: UserStore.getError() })
+		if (this.state.error === "") {
+			this.props.history.pushState(null, "/");
+		}
 	},
 
 	handleUserChange: function(event) {
@@ -63,7 +67,13 @@ var SignUp = React.createClass({
 					      	type="password" placeholder="Password"/>
 					    </div>
 					  </div>
-					  <button onClick={this.Signup} id="signup-button" className="positive ui button">Sign Up!</button>
+					  <button 
+					  		onClick={this.Signup} 
+					  		id="signup-button" 
+					  		className="positive ui button">
+					  		Sign Up!
+					  </button>
+					  <div className="error-message">{this.state.error}</div>
 					</div>
 				</div>
 			</div>
