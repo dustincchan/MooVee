@@ -6,20 +6,27 @@ var MovieIndexItem = require('./movieIndexItem');
 var Search = require('./movieSearch');
 var RatingFilter = require('./ratingFilter');
 var GenreFilter = require('./GenreFilter');
+var InfiniteScroll = require('react-infinite-scroll')(React);
 
 var MoviesIndex = React.createClass({
   getInitialState: function () {
-    return { movies: MovieStore.all(), };
+    return { movies: MovieStore.all() };
   },
 
   _onChange: function () {
     this.setState({ movies: MovieStore.all() });
   },
 
+  componentWillMount: function () {
+    ApiUtil.getMasterList();
+  },
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
-    ApiUtil.getMasterList();
+  },
+
+  loadfunc: function () {
+
   },
 
   componentWillUnmount: function () {
@@ -41,20 +48,18 @@ var MoviesIndex = React.createClass({
           </div>
 
         </div>
-        
-        <ul className="ui medium images" id="grid-images">
-
-          {this.state.movies.map(function (movie) {
-            return (
-              <MovieIndexItem 
-              movie={movie} 
-              key={movie["imdbID"]}
-              plot={movie["Plot"].length > 700 ? movie["Plot"].slice(0,700) + "..." : movie["Plot"]}
-              posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
-              />
-              )
-          })}
-        </ul>
+          <ul className="ui medium images" id="grid-images">
+            {this.state.movies.map(function (movie) {
+              return (
+                <MovieIndexItem 
+                movie={movie} 
+                key={movie["imdbID"]}
+                plot={movie["Plot"].length > 700 ? movie["Plot"].slice(0,700) + "..." : movie["Plot"]}
+                posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
+                />
+                )
+            })}
+          </ul>
       </div>
     );
   }

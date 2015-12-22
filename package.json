@@ -47,6 +47,7 @@
     "map-stream": "0.0.6",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-infinite-scroll": "^0.1.5",
     "react-mixin": "^3.0.3",
     "react-nouislider": "^1.6.0",
     "react-router": "^1.0.2",
