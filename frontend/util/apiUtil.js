@@ -53,7 +53,7 @@ module.exports = {
   },
 
   getMasterList: function() {
-    var url = 'http://api.themoviedb.org/3/discover/movie',
+    var url = 'https://api.themoviedb.org/3/discover/movie',
 
         key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
         $.ajax({
@@ -70,7 +70,7 @@ module.exports = {
 
                 $.ajax({
                   type: "GET",
-                  url: "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=full&r=json",
+                  url: "https://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=full&r=json",
                   dataType: 'json',
                   success: function (data) {
                     MovieActions.receiveBrowseMovie(data);
