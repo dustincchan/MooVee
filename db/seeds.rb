@@ -13,3 +13,5 @@ User.create!(
 User.create!(
 	username: "Guest",
   password_digest: "$2a$10$GBzvpk5HL4fPC4W9LQRp8OhVXbIzg.NhZCM2hT98LoYDndSgZDZq6")
+
+

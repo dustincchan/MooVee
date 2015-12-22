@@ -19,7 +19,7 @@ var RatingFilter = React.createClass({
 
 	render: function() {
 		return (
-			<div className="ui star rating" data-rating="3"></div>
+			<div className="ui star rating" data-rating="1"></div>
 			);
 	}
 });

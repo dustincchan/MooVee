@@ -19,6 +19,7 @@ var MoviesIndex = React.createClass({
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
+    ApiUtil.getMasterList();
   },
 
   componentWillUnmount: function () {

@@ -31,5 +31,12 @@ module.exports = {
 
   receiveUserLogin: function (data) {
     debugger;
+  },
+
+  receiveBrowseMovie: function (movieData) {
+    Dispatcher.dispatch({
+      actionType: MovieConstants.BROWSEMOVIE_RECEIVED,
+      movieData: movieData
+    })
   }
 };

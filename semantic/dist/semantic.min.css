@@ -164,6 +164,22 @@
   transition: border 500ms ease-out; 
 }
 
+#imdb-icon {
+	float: right;
+	height: 40px;
+	width: 40px;
+	position: relative;
+	bottom: 29px;
+	right: 25px;
+}
+
+#imdb-rating {
+	float: right;
+	position: relative;
+	bottom: 18px;
+	left: 40px;
+	font-weight: 900;
+}
 #root {
 	height: 1000px;
 }

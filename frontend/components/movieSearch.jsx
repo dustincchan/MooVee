@@ -6,6 +6,7 @@ var ApiUtil = require('../util/apiUtil.js');
 var Search = React.createClass({
 	getInitialState: function () {
 		return { inputVal: "" };
+		
 	},
 
 	executeSearch: function () {

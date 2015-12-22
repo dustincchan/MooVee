@@ -27,8 +27,13 @@ var MovieIndexItem = React.createClass({
 							          <InfoButton className="info-button"	movieID={this.props.movie["imdbID"]}/>
 							        </div>
 						        </div>
-						        <div id="movie-title" className="content">
-						          <div onClick={this.handlePosterClicked} className="header">{this.props.movie["Title"]}</div>
+						        <div onClick={this.handlePosterClicked} id="movie-title" className="content">
+						          <div className="header">{this.props.movie["Title"]}</div>
+						          <div className="footer">
+						          	<div className="movie-year">{this.props.movie["Year"]}</div>
+						          	<img id="imdb-icon" src="http://i.imgur.com/Nr2iFBF.png"/>
+						          	<div id="imdb-rating"><b>{this.props.movie["imdbRating"]}</b></div>
+						          </div>
 						        </div>
 						      </div>
 						    </div>

@@ -50,5 +50,37 @@ module.exports = {
         UserActions.receiveUserLogin(data);
       }
     })
+  },
+
+  getMasterList: function() {
+    var url = 'http://api.themoviedb.org/3/discover/movie',
+
+        key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
+        $.ajax({
+            type: 'GET',
+            url: url + key + '&sort_by=vote_average.desc&vote_count.gte=100&page=1',
+            async: false,
+            jsonpCallback: 'testing',
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function (data) {
+              data['results'].forEach(function(movie) {
+                var title = movie["title"];
+                var year = movie["release_date"].slice(0,4);
+
+                $.ajax({
+                  type: "GET",
+                  url: "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=full&r=json",
+                  dataType: 'json',
+                  success: function (data) {
+                    MovieActions.receiveBrowseMovie(data);
+                  }
+                });
+              }.bind(this));
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+    });
   }
 };
