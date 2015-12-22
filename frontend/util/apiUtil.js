@@ -53,7 +53,7 @@ module.exports = {
   },
 
   getMasterList: function() {
-    for (var pageNum = 1; pageNum <= 1; pageNum++) {
+    for (var pageNum = 1; pageNum <= 10; pageNum++) {
       var url = 'https://api.themoviedb.org/3/discover/movie', 
           key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
           $.ajax({
@@ -73,13 +73,18 @@ module.exports = {
                           + title + "&y=" + year + "&plot=full&r=json",
                     dataType: 'json',
                     success: function (data) {
-                      MovieActions.receiveBrowseMovie(data);
+                      if (data["Response"] !== "False") { 
+                        MovieActions.receiveBrowseMovie(data);
+                      }
+                    },
+                    error: function (e) {
+                      console.log(e);
                     }
                   });
                 }.bind(this));
               },
               error: function(e) {
-                  console.log("e.message");
+                  console.log(e);
               }
       });
     }

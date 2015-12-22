@@ -56,6 +56,7 @@ MovieStore.masterList = function () {
 };
 
 MovieStore.all = function () {
+  console.log(_masterList);
   if (_masterList.length > 0) {
     return _masterList.slice(0);
   } else if (_filteredMovieList.length > 0 || ratingTooHigh === true) {

@@ -34,6 +34,12 @@ var MoviesIndex = React.createClass({
   },
 
   render: function () {
+    this.state.movies.forEach(function(m){
+      if(m["Plot"] === undefined){
+        debugger;
+      }
+    });
+    
     return (
       <div className="ui four column grid">
         <div className="three column row" id="search-bar">
