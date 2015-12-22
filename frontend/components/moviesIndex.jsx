@@ -34,12 +34,6 @@ var MoviesIndex = React.createClass({
   },
 
   render: function () {
-    this.state.movies.forEach(function(m){
-      if(m["Plot"] === undefined){
-        debugger;
-      }
-    });
-    
     return (
       <div className="ui four column grid">
         <div className="three column row" id="search-bar">
@@ -49,7 +43,7 @@ var MoviesIndex = React.createClass({
           </div>
           <div className="column" id="big-search">
             <div className="ui segment" id="rating">
-            <a className="ui yellow circular label" id="imdb-label">Minimum IMDB Rating: </a>
+            <a className="ui yellow circular label" id="imdb-label">Minimum Rating: </a>
             <RatingFilter/></div>
           </div>
 

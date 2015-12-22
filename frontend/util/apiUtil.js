@@ -52,13 +52,16 @@ module.exports = {
     })
   },
 
-  getMasterList: function() {
-    for (var pageNum = 1; pageNum <= 10; pageNum++) {
+  getMasterList: function(genre) {
+    for (var pageNum = 1; pageNum <= 2; pageNum++) {
       var url = 'https://api.themoviedb.org/3/discover/movie', 
           key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
+      if (genre === undefined) {
+        genreFilter = ""
+      } else { genreFilter = '&with_genres=' + genre }
           $.ajax({
               type: 'GET',
-              url: url + key + '&sort_by=vote_average.desc&vote_count.gte=100&page='+pageNum,
+              url: url + key + genreFilter + '&sort_by=vote_average.desc&vote_count.gte=100&page='+pageNum,
               async: false,
               contentType: 'application/json',
               dataType: 'jsonp',

@@ -48,7 +48,8 @@ var MovieIndexItem = React.createClass({
 						          <div className="content">
 						          	<div className="ui header">More Info</div>
 						          	<div className="director"> <b>Directed by:</b> <i>{this.props.movie["Director"]}</i> </div>
-						          	<div className="cast"> <b>Cast:</b> <i>{this.props.movie["Actors"]}</i> </div>
+						          	<div className="cast"> <b>Cast:</b> <i>{this.props.movie["Actors"]}</i></div>
+						          	<div className="genre"> <b>Genre:</b> <i>{this.props.movie["Genre"]}</i></div>
 						          </div>
 						        </div>
 						      </div>

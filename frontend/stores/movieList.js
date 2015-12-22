@@ -51,12 +51,17 @@ MovieStore.browsingMode = function () {
   return browsing;
 };
 
+MovieStore.resetMovieLists = function () {
+  _movieList = [];
+  _filteredMovieList = [];
+  _masterList = [];
+}
+
 MovieStore.masterList = function () {
   return _masterList;
 };
 
 MovieStore.all = function () {
-  console.log(_masterList);
   if (_masterList.length > 0) {
     return _masterList.slice(0);
   } else if (_filteredMovieList.length > 0 || ratingTooHigh === true) {
