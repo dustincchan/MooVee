@@ -19,7 +19,6 @@ var RatingFilter = React.createClass({
 		$('.rating')
 			.rating('setting', 'onRate', function(value) {
 				MovieStore.resetMovieLists();
-				console.log(MovieStore.browsingMode());
 				if (MovieStore.browsingMode()) {
 					FilterActions.receiveRatingFilter(value);
 				} else {
