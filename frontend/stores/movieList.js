@@ -5,6 +5,7 @@ var MovieStore = new Store(AppDispatcher);
 
 var _movieList = [];
 var _masterList = [];
+var filters = {'genre': "", 'rating': "", 'year': ""};
 var _filteredMovieList = _movieList.slice(0);
 var ratingTooHigh = false;
 var browsing = true;
@@ -15,13 +16,13 @@ var resetMovieLists = function () {
   _masterList = [];
 };
 
-var toggleBrowsing = function () {
+MovieStore.toggleBrowsing = function () {
   if (browsing) {
     browsing = false;
   } else {
     browsing = true;
   }
-}
+};
 
 var addMovieToStore = function (singleMovie) {
   _movieList.push(singleMovie);
@@ -88,6 +89,9 @@ MovieStore.__onDispatch = function (payload) {
       break;
     case MovieConstants.BROWSEMOVIE_RECEIVED:
       formatMasterList(payload.movieData);
+      break;
+    case MovieConstants.GENRE_FILTER_RECEIVED:
+      updateGenre(payload.genre);
       break;
   }
   MovieStore.__emitChange();

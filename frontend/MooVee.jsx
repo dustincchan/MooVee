@@ -8,11 +8,12 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 
 //flux/stores
-var ApiUtil = require('./util/apiUtil');
+var FilterStore = require('./stores/FilterStore');
 var MovieStore = require('./stores/movieList');
 var UserStore = require('./stores/UserStore');
 var MoviesIndex = require('./components/moviesIndex');
 var NavBar = require('./components/navBar');
+var ApiUtil = require('./util/apiUtil');
 
 //users
 var LogIn = require('./components/users/LogIn');

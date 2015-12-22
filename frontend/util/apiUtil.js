@@ -1,5 +1,8 @@
 var MovieActions = require('../actions/movieActions.js');
 var UserActions = require('../actions/userActions');
+var FilterStore = require('../stores/FilterStore');
+var MovieStore = require('../stores/movieList');
+
 
 module.exports = {
   resetStore: function() {
@@ -52,16 +55,27 @@ module.exports = {
     })
   },
 
-  getMasterList: function(genre) {
+  getMasterList: function(filters) {
+    MovieStore.resetMovieLists();
     for (var pageNum = 1; pageNum <= 2; pageNum++) {
       var url = 'https://api.themoviedb.org/3/discover/movie', 
+          genreFilter = '',
+          ratingFilter = '',
+          yearFilter = '',
           key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
-      if (genre === undefined) {
-        genreFilter = ""
-      } else { genreFilter = '&with_genres=' + genre }
+
+      if (filters !== undefined) {
+        if (filters['genre'] === "" || filters['genre'] === undefined) {
+          genreFilter = ""
+        } else { genreFilter = '&with_genres=' + filters['genre'] }
+
+        if (filters['rating'] === "" || filters['rating'] === undefined) {
+          ratingFilter = ""
+        } else { ratingFilter = '&vote_average.gte=' + filters['rating'] }
+      }
           $.ajax({
               type: 'GET',
-              url: url + key + genreFilter + '&sort_by=vote_average.desc&vote_count.gte=100&page='+pageNum,
+              url: url + key + genreFilter + ratingFilter + '&vote_count.gte=100&page='+pageNum,
               async: false,
               contentType: 'application/json',
               dataType: 'jsonp',

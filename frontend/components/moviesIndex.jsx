@@ -54,7 +54,7 @@ var MoviesIndex = React.createClass({
                 <MovieIndexItem 
                 movie={movie} 
                 key={movie["imdbID"]}
-                plot={movie["Plot"].length > 700 ? movie["Plot"].slice(0,700) + "..." : movie["Plot"]}
+                plot={movie["Plot"].length > 697 ? movie["Plot"].slice(0,697) + "..." : movie["Plot"]}
                 posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
                 />
                 )

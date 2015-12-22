@@ -1,10 +1,16 @@
 var React = require('react');
+var FilterStore = require('../stores/FilterStore');
 var MovieStore = require('../stores/movieList');
 var ApiUtil = require('../util/apiUtil.js');
+var FilterActions = require('../actions/filterActions');
 var MovieActions = require('../actions/movieActions');
-var RatingFilter = React.createClass({
+var GenreFilter = require('./GenreFilter');
+var currentRating = '';
 
+var RatingFilter = React.createClass({
 	componentDidMount: function () {
+		this.filterListener = FilterStore.addListener(this._onChange);
+
 		$('.rating')
 			.rating({
 				initialRating: 0,
@@ -12,10 +18,23 @@ var RatingFilter = React.createClass({
 			});
 		$('.rating')
 			.rating('setting', 'onRate', function(value) {
-				MovieActions.receiveRatingChange(value);
+				MovieStore.resetMovieLists();
+				console.log(MovieStore.browsingMode());
+				if (MovieStore.browsingMode()) {
+					FilterActions.receiveRatingFilter(value);
+				} else {
+					MovieActions.receiveRatingChange(value);
+				}
 			});
 	},
 
+	_onChange: function () {
+		filters = FilterStore.all();
+	},
+
+	componentWillUnmount: function () {
+		this.filterListener.remove();
+	},
 
 	render: function() {
 		return (

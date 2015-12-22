@@ -1,42 +1,28 @@
 var React = require('react');
-var MovieStore = require('../stores/movieList');
-var ApiUtil = require('../util/apiUtil.js');
-var MovieActions = require('../actions/movieActions');
-
-var Gmap = {
-	"Action": 28,
-	"Adventure": 12,
-	"Animation": 16,
-	"Comedy": 35,
-	"Crime": 80,
-	"Documentary": 99,
-	"Drama": 18,
-	"Family": 10751,
-	"Fantasy": 14,
-	"Foreign": 10769,
-	"History": 36,
-	"Horror": 27,
-	"Music": 10402,
-	"Mystery": 9648,
-	"Romance": 10749,
-	"Science Fiction": 878,
-	"TV Movie": 10770,
-	"Thriller": 53,
-	"War": 10752,
-	"Western": 37
-};
-
+var FilterStore = require('../stores/FilterStore');
+var FilterActions = require('../actions/filterActions');
+var RatingFilter = require('./ratingFilter');
+var currentGenre = '';
 var GenreFilter = React.createClass({
 
 	componentDidMount: function () {
+		this.filterListener = FilterStore.addListener(this._onChange);
+
 		$('.ui.form').form({});
 		$('.dropdown').dropdown({
-			onChange: function(value, text, $selectedItem) {
+			onChange: function(value) {
 				action: 'set selected(value)',
-				MovieStore.resetMovieLists();
-				ApiUtil.getMasterList(value);
+				FilterActions.receiveGenreFilter(value);
 			}
 		})
+	},
+
+	_onChange: function () {
+		filters = FilterStore.all();
+	},
+
+	componentWillUnmount: function () {
+		this.filterListener.remove();
 	},
 
 	render: function () {
@@ -66,7 +52,6 @@ var GenreFilter = React.createClass({
 			    		<option value="53">Thriller</option>
 			    		<option value="10752">War</option>
 			    		<option value="37">Western</option>
-
 			    	</select>
 			  </div>
 			</div>
