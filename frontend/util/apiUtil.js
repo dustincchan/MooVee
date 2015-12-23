@@ -1,7 +1,7 @@
 var MovieActions = require('../actions/movieActions.js');
 var UserActions = require('../actions/userActions');
 var FilterStore = require('../stores/FilterStore');
-var MovieStore = require('../stores/movieList');
+var MovieStore = require('../stores/MovieStore');
 
 
 module.exports = {
@@ -92,7 +92,8 @@ module.exports = {
       }
           $.ajax({
               type: 'GET',
-              url: url + key + genreFilter + ratingFilter + '&vote_count.gte=100&page='+pageNum,
+              url: url + key + genreFilter + ratingFilter 
+              + '&vote_count.gte=100&page='+pageNum,
               async: false,
               contentType: 'application/json',
               dataType: 'jsonp',
@@ -104,9 +105,10 @@ module.exports = {
                   $.ajax({
                     type: "GET",
                     url: "https://www.omdbapi.com/?t=" 
-                          + title + "&y=" + year + "&plot=full&r=json",
+                          + title + "&y=" + year + "&plot=full&r=json&tomatoes=true",
                     dataType: 'json',
                     success: function (data) {
+                      console.log(data);
                       if (data["Response"] !== "False") { 
                         MovieActions.receiveBrowseMovie(data);
                       }

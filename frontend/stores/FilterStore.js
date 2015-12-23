@@ -2,7 +2,7 @@ var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/dispatcher.js');
 var FilterConstants = require('../constants/filterConstants');
 var FilterStore = new Store(AppDispatcher);
-var ApiUtil = require('../util/apiUtil');
+var ApiUtil = require('../util/ApiUtil');
 
 var filters = {'genre': "", 'rating': "", 'year': ""};
 
@@ -15,7 +15,7 @@ updateGenreFilter = function (genre) {
 updateRatingFilter = function (rating) {
 	filters['rating'] = rating;
 	ApiUtil.getMasterList(filters);
-}
+};
 
 FilterStore.all = function () {
 	return filters;

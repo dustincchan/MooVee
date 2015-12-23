@@ -1,7 +1,7 @@
 var React = require('react');
-var FilterStore = require('../stores/FilterStore');
-var FilterActions = require('../actions/filterActions');
-var RatingFilter = require('./ratingFilter');
+var FilterStore = require('../../stores/FilterStore');
+var FilterActions = require('../../actions/filterActions');
+var RatingFilter = require('./RatingFilter');
 var currentGenre = '';
 var GenreFilter = React.createClass({
 

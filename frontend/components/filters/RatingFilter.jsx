@@ -1,9 +1,9 @@
 var React = require('react');
-var FilterStore = require('../stores/FilterStore');
-var MovieStore = require('../stores/movieList');
-var ApiUtil = require('../util/apiUtil.js');
-var FilterActions = require('../actions/filterActions');
-var MovieActions = require('../actions/movieActions');
+var FilterStore = require('../../stores/FilterStore');
+var MovieStore = require('../../stores/MovieStore');
+var ApiUtil = require('../../util/ApiUtil.js');
+var FilterActions = require('../../actions/filterActions');
+var MovieActions = require('../../actions/movieActions');
 var GenreFilter = require('./GenreFilter');
 var currentRating = '';
 

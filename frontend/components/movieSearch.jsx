@@ -1,6 +1,6 @@
 var React = require('react');
-var MovieStore = require('../stores/movieList');
-var ApiUtil = require('../util/apiUtil.js');
+var MovieStore = require('../stores/MovieStore');
+var ApiUtil = require('../util/ApiUtil.js');
 
 
 var Search = React.createClass({

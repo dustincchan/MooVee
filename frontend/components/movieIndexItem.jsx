@@ -1,5 +1,5 @@
 var React = require('react');
-var MovieStore = require('../stores/movieList');
+var MovieStore = require('../stores/MovieStore');
 var InfoButton = require('./InfoButton')
 var MovieIndexItem = React.createClass({
 
@@ -18,22 +18,14 @@ var MovieIndexItem = React.createClass({
 						  <div className="sides">
 						    <div className="side active">
 						      <div className="ui card" id="card-front">
-						        <div className="image">
+						        <div id="image-container" className="image">
 						        	<div className="poster and info-button">
 							          <img className="movie-poster" 
 							          		onClick={this.handlePosterClicked}
 							          		id={this.props.movie["imdbID"]} 
-							          		src={this.props.posterLink}/>
-							          <InfoButton className="info-button"	movieID={this.props.movie["imdbID"]}/>
+							          		src={this.props.posterLink}>
+							          </img>
 							        </div>
-						        </div>
-						        <div onClick={this.handlePosterClicked} id="movie-title" className="content">
-						          <div className="header">{this.props.movie["Title"]}</div>
-						          <div className="footer">
-						          	<div className="movie-year">{this.props.movie["Year"]}</div>
-						          	<img id="imdb-icon" src="http://i.imgur.com/Nr2iFBF.png"/>
-						          	<div id="imdb-rating"><b>{this.props.movie["imdbRating"]}</b></div>
-						          </div>
 						        </div>
 						      </div>
 						    </div>

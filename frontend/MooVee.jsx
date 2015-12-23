@@ -9,11 +9,11 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 //flux/stores
 var FilterStore = require('./stores/FilterStore');
-var MovieStore = require('./stores/movieList');
+var MovieStore = require('./stores/MovieStore');
 var UserStore = require('./stores/UserStore');
-var MoviesIndex = require('./components/moviesIndex');
-var NavBar = require('./components/navBar');
-var ApiUtil = require('./util/apiUtil');
+var MoviesIndex = require('./components/MoviesIndex');
+var NavBar = require('./components/NavBar');
+var ApiUtil = require('./util/ApiUtil');
 
 //users
 var LogIn = require('./components/users/LogIn');
@@ -22,7 +22,7 @@ var SignUp = require('./components/users/SignUp');
 
 //movie lists
 var MovieLists = require('./components/lists/MovieLists');
-var GenreFilter = require('./components/GenreFilter');
+var GenreFilter = require('./components/filters/GenreFilter');
 
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
