@@ -20,13 +20,13 @@
 	height: 100%;
 }
 
-#grid-images {
-	height: 100%;
-	background: #333333;
-}
 
 .error-message {
 	color: red;
+}
+
+#MoviesIndex-and-Sidebar {
+	background: #333333;
 }
 
 #rating {
