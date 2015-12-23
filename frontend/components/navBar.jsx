@@ -3,6 +3,8 @@ var ReactRouter = require('react-router');
 var Route = require('react-router').Route;
 var Navigation = require('react-router').Navigation;
 var UserStore = require('../stores/UserStore');
+var UserActions = require('../actions/userActions');
+var ApiUtil = require('../util/apiUtil');
 
 var NavBar = React.createClass({
   getInitialState: function () {
@@ -14,7 +16,7 @@ var NavBar = React.createClass({
   },
 
   guestLogin: function () {
-    console.log("guestLogin");
+    ApiUtil.loginAsGuest();  
   },
 
   _userChanged: function () {
@@ -28,7 +30,7 @@ var NavBar = React.createClass({
           <a href="#" className="ui active item">Home</a>
           <a href="#/lists/" className="item">Movie Lists</a>
           <a className="item">My Movie Lists</a>
-          <a onClick={this.guestLogin} className="right floated item">Guest Log In</a>
+          <a href="#" onClick={this.guestLogin} className="right floated item">Guest Log In</a>
           <a href="#/users/new" className="item">Sign up!</a>
           <a href="#/session/new" className="item">Log In</a>
         </div>

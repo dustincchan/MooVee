@@ -61,6 +61,17 @@ module.exports = {
     })
   },
 
+  loginAsGuest: function () {
+    $.ajax({
+      type: "POST",
+      url: "api/session/",
+      data: {user: {username: "Guest", password: "guesty"}},
+      success: function (data) {
+        UserActions.loginGuest(data);
+      }
+    })
+  },
+
   getMasterList: function(filters) {
     MovieStore.resetMovieLists();
     for (var pageNum = 1; pageNum <= 2; pageNum++) {

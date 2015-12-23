@@ -46,6 +46,10 @@ UserStore.__onDispatch = function (payload) {
 			addError(payload.message);
 			UserStore.__emitChange();
 			break;
+		case UserConstants.GUEST_LOGIN:
+			storeCurrentUser(payload.userData);
+			UserStore.__emitChange();
+			break;
 		}
 
 };

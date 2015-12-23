@@ -28,5 +28,12 @@ module.exports = {
 			actionType: UserConstants.USER_RECEIVED,
 			userData: userData
 		})
+	},
+
+	loginGuest: function (userData) {
+		Dispatcher.dispatch({
+			actionType: UserConstants.GUEST_LOGIN,
+			userData: userData
+		})
 	}
 };

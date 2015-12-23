@@ -28,6 +28,10 @@ var LogIn = React.createClass({
 		this.setState({username: event.target.value});
 	},
 
+	componentWillUnmount: function () {
+		this.userListener.remove();
+	},
+
 	handlePassChange: function(event) {
 		this.setState({password: event.target.value});
 	},
@@ -57,6 +61,7 @@ var LogIn = React.createClass({
 					      	onChange={this.handleUserChange} 
 					      	id="username-field" 
 					      	type="text" 
+					      	value={this.props.guestname}
 					      	placeholder="Username"/>
 					    </div>
 					    <div className="field">
@@ -65,6 +70,7 @@ var LogIn = React.createClass({
 					      	onChange={this.handlePassChange}
 					      	id="password-field" 
 					      	type="password" 
+					      	value={this.props.guestpass}
 					      	placeholder="Password"/>
 					    </div>
 					  </div>
