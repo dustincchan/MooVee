@@ -36,22 +36,25 @@ var MoviesIndex = React.createClass({
 
   render: function () {
     return (
-      <div className="ui four column grid">
-        <div id="sidebar-container">
-          <Sidebar/>
+      <div className="ui grid">
+        <div id="MoviesIndex-and-Sidebar" className="two column row">
+          <Sidebar className="column"/>
+          <div className="thirteen wide column" id="medium images">
+            <ul className="ui right floated medium images" id="grid-images">
+              <div>HELLO</div>
+              {this.state.movies.map(function (movie) {
+                return (
+                  <MovieIndexItem 
+                  movie={movie} 
+                  key={movie["imdbID"]}
+                  plot={movie["Plot"].length > 697 ? movie["Plot"].slice(0,697) + "..." : movie["Plot"]}
+                  posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
+                  />
+                  )
+              })}
+            </ul>
+          </div>
         </div>
-          <ul className="ui medium images" id="grid-images">
-            {this.state.movies.map(function (movie) {
-              return (
-                <MovieIndexItem 
-                movie={movie} 
-                key={movie["imdbID"]}
-                plot={movie["Plot"].length > 697 ? movie["Plot"].slice(0,697) + "..." : movie["Plot"]}
-                posterLink={"http://img.omdbapi.com/?i=" + movie["imdbID"] + "&apikey=32fa0dab&h=1000"}
-                />
-                )
-            })}
-          </ul>
       </div>
     );
   }
