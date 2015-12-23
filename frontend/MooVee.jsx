@@ -11,9 +11,9 @@ var IndexRoute = ReactRouter.IndexRoute;
 var FilterStore = require('./stores/FilterStore');
 var MovieStore = require('./stores/MovieStore');
 var UserStore = require('./stores/UserStore');
-var MoviesIndex = require('./components/movies');
-var NavBar = require('./components/NavBar');
-var ApiUtil = require('./util/ApiUtil');
+var MoviesIndex = require('./components/MoviesIndex');
+var NavBar = require('./components/navbar');
+var ApiUtil = require('./util/api_util');
 
 //users
 var LogIn = require('./components/users/LogIn');
