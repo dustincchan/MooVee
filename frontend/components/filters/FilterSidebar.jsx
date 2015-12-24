@@ -3,10 +3,10 @@ var React = require('react');
 var Sidebar = React.createClass ({
   render: function () {
     return (
-    <div className="ui vertical menu">
+    <div className="ui inverted vertical menu">
       <div/>
       <div className="item">
-        <div className="ui input"><input type="text" placeholder="Search..."/></div>
+        <div className="ui input"><input type="text" placeholder="Search Movies..."/></div>
       </div>
       <div className="item">
         Home

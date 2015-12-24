@@ -38,10 +38,11 @@ var MoviesIndex = React.createClass({
     return (
       <div className="ui grid">
         <div id="MoviesIndex-and-Sidebar" className="two column row">
-          <Sidebar className="column"/>
+          <Sidebar/>
           <div className="thirteen wide column" id="medium images">
             <ul className="ui right floated medium images" id="grid-images">
-              <div>HELLO</div>
+              <div className="ui huge black label">BROWSING MODE</div>
+              <br/><br/>
               {this.state.movies.map(function (movie) {
                 return (
                   <MovieIndexItem 

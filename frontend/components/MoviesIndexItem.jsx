@@ -1,8 +1,10 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var MovieStore = require('../stores/MovieStore');
 var InfoButton = require('./InfoButton')
-var MovieIndexItem = React.createClass({
+var MoviePosterOverlay = require('./MoviePosterOverlay');
 
+var MovieIndexItem = React.createClass({
 	componentDidMount: function () {
 		$('.shape').shape();
 	},
@@ -11,9 +13,22 @@ var MovieIndexItem = React.createClass({
 		$('#'+this.props.movie["imdbID"]).shape('flip right');
 	},
 
+	revealOverlay: function () {
+		var node = ReactDOM.findDOMNode(this.refs.overlayRef);
+		node.classList.remove("hidden");
+	},
+
+	hideOverlay: function () {
+		var node = ReactDOM.findDOMNode(this.refs.overlayRef);
+		node.classList.add("hidden");
+	},
+
 	render: function () {
 		return (
 				<li id="image-column" className="ui image column">
+					<div ref="overlayRef" className="overlay-information hidden">
+						<MoviePosterOverlay/>
+					</div>
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
@@ -22,6 +37,8 @@ var MovieIndexItem = React.createClass({
 						        	<div className="poster and info-button">
 							          <img className="movie-poster" 
 							          		onClick={this.handlePosterClicked}
+							          		onMouseEnter={this.revealOverlay}
+							          		onMouseLeave={this.hideOverlay}
 							          		id={this.props.movie["imdbID"]} 
 							          		src={this.props.posterLink}>
 							          </img>
@@ -32,10 +49,7 @@ var MovieIndexItem = React.createClass({
 						    <div className="side">
 						      <div onClick={this.handlePosterClicked} className="ui card" id="card-back">
 						        <div className="content">
-						          <a className="header">Description</a>
-						          <div className="description">
-						         	<i>{this.props.plot}</i>
-						          </div>
+						          
 						          <br/>
 						          <div className="content">
 						          	<div className="ui header">More Info</div>

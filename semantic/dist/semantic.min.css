@@ -20,9 +20,21 @@
 	height: 100%;
 }
 
+.overlay-information {
+	position: absolute;
+  z-index: 2;
+}
+
+.hidden {
+	display: none;
+}
 
 .error-message {
 	color: red;
+}
+
+.ui.vertial.menu {
+	min-width: ;
 }
 
 #MoviesIndex-and-Sidebar {
@@ -68,22 +80,25 @@
 }
 
 #card-back {
-	max-height: 280px;
 	min-width: 184px;
+	min-height: 280px;
 }
 
 #card-front {
-	height: 100%;
+	max-height: 280px;
 	width: 100%;
+	box-shadow: 0 0px 0px #333;
 }
 
 .movie-poster {
+	background: black;
 	min-width: 184px;
-	min-height: 279px;
-	max-height: 280px;
+	min-height: 280px;
+	max-height: 281px;
 	position: relative;
 	right: 7px;
 }
+
 
 .ui.people.shape {
 	height: 100%;
@@ -96,6 +111,11 @@
 }
 
 .side.active {
+	height: 100%;
+	width: 100%;
+}
+
+.side.active.hidden {
 	height: 100%;
 	width: 100%;
 }

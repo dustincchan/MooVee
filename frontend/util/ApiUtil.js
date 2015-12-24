@@ -108,7 +108,6 @@ module.exports = {
                           + title + "&y=" + year + "&plot=full&r=json&tomatoes=true",
                     dataType: 'json',
                     success: function (data) {
-                      console.log(data);
                       if (data["Response"] !== "False") { 
                         MovieActions.receiveBrowseMovie(data);
                       }
