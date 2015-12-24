@@ -140,6 +140,12 @@
 	transform: scale(1.2);
 }
 
+#movie-poster-overlay {
+	height: 280px;
+	width: 180px;
+	text-align: center;
+}
+
 #movie-title {
 	text-align: center;
 	position: absolute;

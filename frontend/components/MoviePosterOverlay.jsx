@@ -3,7 +3,9 @@ var React = require('react');
 var MoviePosterOverlay = React.createClass({
 	render: function () {
 		return (
-			<div>HELLO</div>
+			<div id="movie-poster-overlay" className="ui grey label">
+				HELLO
+			</div>
 		)
 	}
 });

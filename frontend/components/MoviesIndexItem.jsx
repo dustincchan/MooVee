@@ -26,9 +26,6 @@ var MovieIndexItem = React.createClass({
 	render: function () {
 		return (
 				<li id="image-column" className="ui image column">
-					<div ref="overlayRef" className="overlay-information hidden">
-						<MoviePosterOverlay/>
-					</div>
 						<div className="ui people shape" id={this.props.movie["imdbID"]}>
 						  <div className="sides">
 						    <div className="side active">
@@ -37,11 +34,14 @@ var MovieIndexItem = React.createClass({
 						        	<div className="poster and info-button">
 							          <img className="movie-poster" 
 							          		onClick={this.handlePosterClicked}
-							          		onMouseEnter={this.revealOverlay}
+							          		onMouseOver={this.revealOverlay}
 							          		onMouseLeave={this.hideOverlay}
 							          		id={this.props.movie["imdbID"]} 
 							          		src={this.props.posterLink}>
 							          </img>
+							          <div ref="overlayRef" className="overlay-information hidden">
+													<MoviePosterOverlay/>
+												</div>
 							        </div>
 						        </div>
 						      </div>
