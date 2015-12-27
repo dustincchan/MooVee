@@ -16,13 +16,46 @@
 	bottom: 90%;
 }
 
+.ui.green.label {
+	background-color: #21BA45!important;
+	border-color: #21BA45!important;
+	color: #FFF!important;
+	position: absolute;
+	bottom: 25px;
+	left: 25px;
+	z-index: 102;
+	opacity: 0.7;
+}
+
+.ui.green.label:hover {
+	opacity: 1;
+}
+
+#image-container {
+	height: 291px;
+}
+
+#poster-and-overlay {
+	height: 291px;
+	z-index: 1;
+}
+
+#green-info-button:hover {
+	background-color: red;
+}
+
 .everything {
 	height: 100%;
 }
 
-.overlay-information {
-	position: absolute;
-  z-index: 2;
+.huge.video.play.outline.icon {
+	position: relative;
+	right: -31px;
+	top: 14px;
+}
+
+.huge.video.play.outline.icon:hover {
+	color: yellow;
 }
 
 .hidden {
@@ -39,6 +72,24 @@
 
 #MoviesIndex-and-Sidebar {
 	background: #333333;
+}
+
+#poster-and-overlay {
+	max-width: 184px;
+	bottom: 291px;
+	right: 3px;
+}
+
+.ui.massive.grey.label {
+  z-index: 102;
+  text-align: center;
+  height: 280px;
+  bottom: 291px;
+  width: 184px;
+  position: relative;
+  right: 3px;
+  border-radius: 0px;
+  opacity: 0.7;
 }
 
 #rating {
@@ -92,7 +143,7 @@
 
 .movie-poster {
 	background: black;
-	min-width: 184px;
+	width: 184px;
 	min-height: 280px;
 	max-height: 281px;
 	position: relative;
@@ -144,19 +195,6 @@
 	height: 280px;
 	width: 180px;
 	text-align: center;
-}
-
-#movie-title {
-	text-align: center;
-	position: absolute;
-	bottom: 0px;
-	height: 60px;
-	width: 300px;
-	background: #cedbe9; /* Old browsers */
-	background: -moz-linear-gradient(top,  #cedbe9 0%, #aac5de 17%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #cedbe9 0%,#aac5de 17%,#6199c7 50%,#3a84c3 51%,#419ad6 59%,#4bb8f0 71%,#3a8bc2 84%,#26558b 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #cedbe9 0%,#aac5de 17%,#6199c7 50%,#3a84c3 51%,#419ad6 59%,#4bb8f0 71%,#3a8bc2 84%,#26558b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedbe9', endColorstr='#26558b',GradientType=0 ); /* IE6-9 */ 
 }
 
 .login-fields {
@@ -231,6 +269,10 @@
 	bottom: 18px;
 	left: 40px;
 	font-weight: 900;
+}
+
+.ui.card {
+	max-width: 184px;
 }
 #root {
 	height: 1000px;

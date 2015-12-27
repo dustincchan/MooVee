@@ -6,7 +6,7 @@ var MoviePosterOverlay = require('./MoviePosterOverlay');
 
 var MovieIndexItem = React.createClass({
 	componentDidMount: function () {
-		$('.shape').shape();
+		$('.ui.people.shape').shape();
 	},
 
 	handlePosterClicked: function () {
@@ -31,17 +31,21 @@ var MovieIndexItem = React.createClass({
 						    <div className="side active">
 						      <div className="ui card" id="card-front">
 						        <div id="image-container" className="image">
-						        	<div className="poster and info-button">
-							          <img className="movie-poster" 
-							          		onClick={this.handlePosterClicked}
-							          		onMouseOver={this.revealOverlay}
-							          		onMouseLeave={this.hideOverlay}
-							          		id={this.props.movie["imdbID"]} 
-							          		src={this.props.posterLink}>
-							          </img>
-							          <div ref="overlayRef" className="overlay-information hidden">
-													<MoviePosterOverlay/>
-												</div>
+						        	<div className="poster-and-overlay" 
+						        		id="poster-and-overlay"
+						        		onMouseEnter={this.revealOverlay}
+								        onMouseLeave={this.hideOverlay}>
+								          <img className="movie-poster" 
+								          		onClick={this.handlePosterClicked}
+								          		id={this.props.movie["imdbID"]} 
+								          		src={this.props.posterLink}>
+								          </img>
+								          <div ref="overlayRef" 
+								          onClick={this.handlePosterClicked} 
+								          className="overlay-information hidden">
+														<MoviePosterOverlay movie={this.props.movie}/>
+														<div id="green-info-button" className="ui green label">Click for more info</div>
+													</div>
 							        </div>
 						        </div>
 						      </div>
@@ -49,7 +53,6 @@ var MovieIndexItem = React.createClass({
 						    <div className="side">
 						      <div onClick={this.handlePosterClicked} className="ui card" id="card-back">
 						        <div className="content">
-						          
 						          <br/>
 						          <div className="content">
 						          	<div className="ui header">More Info</div>

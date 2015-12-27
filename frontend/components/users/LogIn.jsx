@@ -1,6 +1,7 @@
 var React = require('react');
 var ApiUtil = require('../../util/ApiUtil');
 var UserStore = require('../../stores/UserStore');
+var MoviePosterOverlay = require('../MoviePosterOverlay');
 
 var LogIn = React.createClass({
 	getInitialState: function () {
