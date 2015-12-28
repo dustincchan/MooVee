@@ -15,6 +15,10 @@ var NavBar = React.createClass({
     this.userListener = UserStore.addListener(this._userChanged);
   },
 
+  componentWillUnmount: function () {
+    this.userListener.remove();
+  },
+
   guestLogin: function () {
     ApiUtil.loginAsGuest();  
   },

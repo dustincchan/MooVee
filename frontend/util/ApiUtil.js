@@ -9,7 +9,23 @@ module.exports = {
     MovieActions.resetStore();
   },
 
-  fetchFromIMDB: function(searchString) {
+  getYoutubeTrailer: function (movieTitle) {
+    var key = "&key=AIzaSyBUH_-Cg2LiNdKE79Yw3zl8EKJz1MOrgtc";
+    var query = "&q=" + movieTitle.split(' ').join('+') + "trailer";
+    $.ajax({
+      type: "GET",
+      url: "https://www.googleapis.com/youtube/v3/search?part=id" + query + "&type=video" + key,
+      dataType: 'json',
+      success: function (data) {
+        return data["items"][0]["id"]["videoId"];
+       },
+      error: function (e) {
+        console.log(e);
+      }
+    })
+  },
+
+  fetchFromIMDB: function (searchString) {
   	var formattedString = searchString.split(' ').join('+');
     var tempMoves = [];
     $.ajax({
@@ -109,9 +125,25 @@ module.exports = {
                     dataType: 'json',
                     success: function (data) {
                       if (data["Response"] !== "False") { 
-                        MovieActions.receiveBrowseMovie(data);
+                        
+                        var key = "&key=AIzaSyBUH_-Cg2LiNdKE79Yw3zl8EKJz1MOrgtc";
+                        var query = "&q=" + data["Title"].split(' ').join('+') + "trailer";
+                        $.ajax({
+                          type: "GET",
+                          movieData: data,
+                          url: "https://www.googleapis.com/youtube/v3/search?part=id" + query + "&type=video" + key,
+                          dataType: 'json',
+                          success: function (data) {
+                            var movie = this.movieData;
+                            movie["trailerId"] = data["items"][0]["id"]["videoId"];
+                            MovieActions.receiveBrowseMovie(movie);
+                           },
+                          error: function (e) {
+                            console.log(e);
+                          }
+                        })
                       }
-                    },
+                    }.bind(this),
                     error: function (e) {
                       console.log(e);
                     }

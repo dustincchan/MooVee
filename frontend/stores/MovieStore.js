@@ -5,6 +5,7 @@ var MovieStore = new Store(AppDispatcher);
 
 var _movieList = [];
 var _masterList = [];
+var youtubeLink = ""
 var filters = {'genre': "", 'rating': "", 'year': ""};
 var _filteredMovieList = _movieList.slice(0);
 var ratingTooHigh = false;
@@ -22,6 +23,14 @@ MovieStore.toggleBrowsing = function () {
   } else {
     browsing = true;
   }
+};
+
+var resetTrailer = function () {
+  youtubeLink = "";
+};
+
+var updateTrailer = function (link) {
+  youtubeLink = link;
 };
 
 var addMovieToStore = function (singleMovie) {
@@ -46,6 +55,10 @@ var filterByRating = function (imdbRating) {
   if (_filteredMovieList.length === 0) {
     ratingTooHigh = true;
   }
+};
+
+MovieStore.currentMovieTrailer = function () {
+  return youtubeLink;
 };
 
 MovieStore.browsingMode = function () {
@@ -93,6 +106,10 @@ MovieStore.__onDispatch = function (payload) {
     case MovieConstants.GENRE_FILTER_RECEIVED:
       updateGenre(payload.genre);
       break;
+    case MovieConstants.YOUTUBE_RECEIVED:
+      updateTrailer(payload.link);
+      break;
+
   }
   MovieStore.__emitChange();
 };

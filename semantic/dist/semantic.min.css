@@ -27,8 +27,14 @@
 	opacity: 0.7;
 }
 
+#play-trailer-text {
+	position: relative;
+	bottom: 15px;
+}
+
 .ui.green.label:hover {
 	opacity: 1;
+	cursor: pointer;
 }
 
 #image-container {

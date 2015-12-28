@@ -38,5 +38,12 @@ module.exports = {
       actionType: MovieConstants.BROWSEMOVIE_RECEIVED,
       movieData: movieData
     })
+  },
+
+  receiveYoutube: function (link) {
+    Dispatcher.dispatch({
+      actionType: MovieConstants.YOUTUBE_RECEIVED,
+      link: link
+    })
   }
 };
