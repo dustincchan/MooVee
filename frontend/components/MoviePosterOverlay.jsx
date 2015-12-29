@@ -1,7 +1,6 @@
 var React = require('react');
 var ApiUtil = require('../util/ApiUtil');
 var MovieStore = require('../stores/MovieStore');
-var YouTube = require('react-youtube');
 
 
 var MoviePosterOverlay = React.createClass({
@@ -9,7 +8,7 @@ var MoviePosterOverlay = React.createClass({
 		return {imdbID: this.props.movie["imdbID"], 
 						modalClassName: "ui basic modal " + this.props.movie["imdbID"],
 						embedClassName: "ui embed " + this.props.movie["imdbID"],
-						youtubeEmbedLink: "https://www.youtube.com/embed/" + this.props.movie["trailerId"]
+						thumbLink: "http://img.youtube.com/vi/" + this.props.movie["trailerId"] + "/hqdefault.jpg"
 					};
 	},
 
@@ -19,29 +18,19 @@ var MoviePosterOverlay = React.createClass({
 
 	componentDidMount: function () {
 		$('.ui.embed.' + this.props.movie["imdbID"]).embed();
-		this.movieListener = MovieStore.addListener(this._movieUpdated);
-	},
-
-	componentWillUnmount: function () {
-		this.movieListener.remove();
-	},
-
-	_movieUpdated: function () {
-		var trailerId = MovieStore.currentMovieTrailer()
-		if (MovieStore.currentMovieTrailer() != "" && this.state.youtubeId != trailerId) {
-			this.setState({ youtubeId: trailerId});
-			this.setState({ youtubeEmbedLink: "https://www.youtube.com/embed/" + trailerId });
-		}
 	},
 
 	openModal: function () {
-		ApiUtil.getYoutubeTrailer(this.props.movie["Title"])
-		setTimeout(function () {$('.ui.modal.' + this.state.imdbID).modal('show')}.bind(this), 750); 
-		setTimeout(function () {console.log(this.state.youtubeEmbedLink)}.bind(this), 300);
+		$('.ui.modal.' + this.state.imdbID)
+			.modal({
+				onShow: function () {console.log("showing!!!")},
+				onHide: function () { this.closeModal() }.bind(this)
+			})
+			.modal('show');
 	},
 
 	closeModal: function () {
-		$('ui.modal').modal('hide');
+		$('.ui.embed.' + this.props.movie["imdbID"]).embed('reset');
 	},
 
 	render: function () {
@@ -63,13 +52,12 @@ var MoviePosterOverlay = React.createClass({
 				<div className={this.state.modalClassName} id={this.props.movie["imdbID"]}>
 				  <i className="close icon" onClick={this.closeModal}></i>
 				  <div className="header">
-				  	{this.props.movie["Title"]}
+				  	{this.props.movie["Title"] + " Trailer"}
 				  </div>
 			  		  <div className={this.state.embedClassName}
 			  		  	data-source="youtube" 
-			  		  	autoplay="true"
 			  		  	data-id={this.props.movie["trailerId"]}
-			  		  	data-placeholder="http://i.imgur.com/lZUEmui.jpg">
+			  		  	data-placeholder={this.state.thumbLink}>
 							</div>
 				</div>
 			</div>

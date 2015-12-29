@@ -42,10 +42,10 @@ var MovieIndexItem = React.createClass({
 								          </img>
 								          <div ref="overlayRef"  
 								          className="overlay-information hidden">
-														<MoviePosterOverlay movie={this.props.movie}/>
+														<MoviePosterOverlay movie={this.props.movie} posterLink={this.props.posterLink}/>
 														<div onClick={this.handlePosterClicked} 
 																 id="green-info-button" 
-																 className="ui green label">Click for more info</div>
+																 className="ui green label">Click for More Options</div>
 													</div>
 							        </div>
 						        </div>
