@@ -1,6 +1,11 @@
 var React = require('react');
+var RatingFilter = require('./RatingFilter');
 
 var Sidebar = React.createClass ({
+  componentDidMount: function () {
+    $('.ui.dropdown.item').dropdown();
+  },
+
   render: function () {
     return (
     <div className="ui inverted vertical menu">
@@ -30,6 +35,9 @@ var Sidebar = React.createClass ({
           <a className="item"><i className="globe icon"></i> Choose Language</a>
           <a className="item"><i className="settings icon"></i> Account Settings</a>
         </div>
+      </div>
+      <div className="item">Minimum IMDB Score
+        <RatingFilter/>
       </div>
     </div>
       )
