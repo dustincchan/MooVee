@@ -6,6 +6,10 @@ var ApiUtil = require('../util/ApiUtil');
 
 var filters = {'genre': "", 'rating': "", 'year': ""};
 
+resetFilters = function () {
+	filters = {'genre': "", 'rating': "", 'year': ""};
+	ApiUtil.getMasterList(filters);
+};
 
 updateGenreFilter = function (genre) {
 	filters['genre'] = genre;
@@ -14,6 +18,11 @@ updateGenreFilter = function (genre) {
 
 updateRatingFilter = function (rating) {
 	filters['rating'] = rating;
+	ApiUtil.getMasterList(filters);
+};
+
+updateYearFilter = function (year) {
+	filters['year'] = year;
 	ApiUtil.getMasterList(filters);
 };
 
@@ -28,6 +37,12 @@ FilterStore.__onDispatch = function (payload) {
 			break;
 		case FilterConstants.RATING_FILTER_RECEIVED:
 			updateRatingFilter(payload.rating);
+			break;
+		case FilterConstants.YEAR_FILTER_RECEIVED:
+			updateYearFilter(payload.year);
+			break;
+		case FilterConstants.RESET_FILTERS:
+			resetFilters();
 			break;
 	}
 	FilterStore.__emitChange();

@@ -26,14 +26,15 @@ var RatingSlider = React.createClass ({
 
 	render: function () {
 		return (
-			<div className="item">
-				<div id="minimum-imdb" className="item">Minimum IMDB: ({this.state.value}/10)</div>
+			<div className="item" id="imdb-slider">
+				<div id="minimum-imdb" className="item">Minimum Score ({this.state.value}/10)</div>
 				<Slider 
 					defaultValue="0"
 					onAfterChange={this.handleRatingChange} 
 					onChange={this.onSliderChange} 
 					min="0" max="10" step="0.1"/>
       </div>
+
 			
 		)
 	}

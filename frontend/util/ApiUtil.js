@@ -105,10 +105,14 @@ module.exports = {
         if (filters['rating'] === "" || filters['rating'] === undefined) {
           ratingFilter = ""
         } else { ratingFilter = '&vote_average.gte=' + filters['rating'] }
+
+        if (filters['year'] === "" || filters['year'] === undefined) {
+          yearFilter = ""
+        } else { yearFilter = '&year=' + filters['year'] }
       }
           $.ajax({
               type: 'GET',
-              url: url + key + genreFilter + ratingFilter 
+              url: url + key + genreFilter + yearFilter + ratingFilter 
               + '&vote_count.gte=100&page='+pageNum,
               async: false,
               contentType: 'application/json',

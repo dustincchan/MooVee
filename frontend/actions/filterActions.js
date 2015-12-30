@@ -14,5 +14,18 @@ module.exports = {
 			actionType: FilterConstants.RATING_FILTER_RECEIVED,
 			rating: rating
 		})
+	},
+
+	receiveYear: function (year) {
+		Dispatcher.dispatch({
+			actionType: FilterConstants.YEAR_FILTER_RECEIVED,
+			year: year
+		})
+	},
+
+	resetFilters: function () {
+		Dispatcher.dispatch({
+			actionType: FilterConstants.RESET_FILTERS,
+		})
 	}
 }

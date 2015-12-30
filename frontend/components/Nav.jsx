@@ -31,7 +31,7 @@ var NavBar = React.createClass({
     if (UserStore.currentUser() === "") {
       return(
         <div className="ui inverted large menu">
-          <a href="#" className="ui active item">Home</a>
+          <a href="#" className="ui item">Home</a>
           <a href="#/lists/" className="item">Movie Lists</a>
           <a className="item">My Movie Lists</a>
           <a href="#" onClick={this.guestLogin} className="right floated item">Guest Log In</a>
