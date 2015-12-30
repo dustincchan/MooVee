@@ -6,8 +6,8 @@ var InfoButton = React.createClass({
 
 	render: function () {
 		return (
-				<div id={this.props.movieID + "-options-dropdown"} className="ui center aligned dropdown icon button">
-					<i className="plus icon"/>
+				<div id={this.props.movieID + "-options-dropdown"} className="tiny ui blue bottom pointing dropdown button">
+					User Options
 					<div className="menu">
 						<div className="header">User Options</div>
 						<div className="item">➕ Add to list</div>

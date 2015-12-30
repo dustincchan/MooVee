@@ -30,7 +30,7 @@ module.exports = {
     var tempMoves = [];
     $.ajax({
     	type: "GET",
-      url: "https://www.omdbapi.com/?s=" + formattedString + "&plot=full",
+      url: "https://www.omdbapi.com/?s=" + formattedString + "&plot=full&r=json&tomatoes=true",
       dataType: 'json',
       success: function (data) {
         data['Search'].forEach(function(movie) {
