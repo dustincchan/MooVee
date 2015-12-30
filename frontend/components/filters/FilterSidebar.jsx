@@ -1,9 +1,10 @@
 var React = require('react');
-var RatingFilter = require('./RatingFilter');
+var MoviesSearch = require('../MoviesSearch');
+var RatingSlider = require('./RatingSlider');
+var ReactDOM = require('react-dom');
 
 var Sidebar = React.createClass ({
   componentDidMount: function () {
-    $('.ui.dropdown.item').dropdown();
   },
 
   render: function () {
@@ -11,7 +12,7 @@ var Sidebar = React.createClass ({
     <div className="ui inverted vertical menu">
       <div/>
       <div className="item">
-        <div className="ui input"><input type="text" placeholder="Search Movies..."/></div>
+        <MoviesSearch/>
       </div>
       <div className="item">
         Home
@@ -21,24 +22,7 @@ var Sidebar = React.createClass ({
           <a className="item">Remove</a>
         </div>
       </div>
-      <a className="item">
-        <i className="grid layout icon"></i> Browse
-      </a>
-      <a className="item">
-        Messages
-      </a>
-      <div className="ui dropdown item">
-        More
-        <i className="dropdown icon"></i>
-        <div className="menu">
-          <a className="item"><i className="edit icon"></i> Edit Profile</a>
-          <a className="item"><i className="globe icon"></i> Choose Language</a>
-          <a className="item"><i className="settings icon"></i> Account Settings</a>
-        </div>
-      </div>
-      <div className="item">Minimum IMDB Score
-        <RatingFilter/>
-      </div>
+      <RatingSlider/>
     </div>
       )
   }

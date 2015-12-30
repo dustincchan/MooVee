@@ -4,7 +4,6 @@ var UserStore = require('../stores/UserStore');
 var ApiUtil = require('../util/ApiUtil');
 var MovieIndexItem = require('./MoviesIndexItem');
 var Search = require('./MoviesSearch');
-var RatingFilter = require('./filters/RatingFilter');
 var GenreFilter = require('./filters/GenreFilter');
 var Sidebar = require('./filters/FilterSidebar');
 var InfiniteScroll = require('react-infinite-scroll')(React);
@@ -38,8 +37,8 @@ var MoviesIndex = React.createClass({
     return (
       <div className="ui grid">
         <div id="MoviesIndex-and-Sidebar" className="two column row">
-          <Sidebar/>
-          <div className="thirteen wide column" id="medium images">
+          <Sidebar className="four wide column"/>
+          <div className="twelve wide column" id="medium images">
             <ul className="ui right floated medium images" id="grid-images">
               <div className="ui huge black label">BROWSING</div>
               <br/><br/>

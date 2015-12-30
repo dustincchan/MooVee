@@ -29,10 +29,9 @@ var Search = React.createClass({
 			<div className="ui action input" id="search-box">
 				<input onChange={this.updateInput} 
 				type="text" 
-				placeholder="Search..."
+				placeholder="Search Movies..."
 				onKeyPress={this.handleKeyPress}
 				/>
-				<button onClick={this.executeSearch} className="ui yellow button" id="search-button">Search Movies</button>
 			</div>
 		);
 	}
