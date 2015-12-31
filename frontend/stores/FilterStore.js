@@ -4,11 +4,23 @@ var FilterConstants = require('../constants/filterConstants');
 var FilterStore = new Store(AppDispatcher);
 var ApiUtil = require('../util/ApiUtil');
 
-var filters = {'genre': "", 'rating': "", 'year': ""};
+var filters = {'genre': "", 'rating': "", 'year': "", 'pageNum': "1", 'numPages': ""};
 
 resetFilters = function () {
 	filters = {'genre': "", 'rating': "", 'year': ""};
+	currentPage = 1;
 	ApiUtil.getMasterList(filters);
+};
+
+updateNumPages = function (numPages) {
+	filters['numPages'] = numPages;
+};
+
+updateCurrentPage = function (page) {
+	if (page != filters['pageNum']) {
+		filters['pageNum'] = page;
+		ApiUtil.getMasterList(filters);
+	}
 };
 
 updateGenreFilter = function (genre) {
@@ -43,6 +55,12 @@ FilterStore.__onDispatch = function (payload) {
 			break;
 		case FilterConstants.RESET_FILTERS:
 			resetFilters();
+			break;
+		case FilterConstants.NUM_PAGES_RECEIVED:
+			updateNumPages(payload.numPages);
+			break;
+		case FilterConstants.PAGE_CHANGE_RECEIVED:
+			updateCurrentPage(payload.page);
 			break;
 	}
 	FilterStore.__emitChange();

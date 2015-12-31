@@ -25,7 +25,21 @@ module.exports = {
 
 	resetFilters: function () {
 		Dispatcher.dispatch({
-			actionType: FilterConstants.RESET_FILTERS,
+			actionType: FilterConstants.RESET_FILTERS
+		})
+	},
+
+	receiveNumPages: function (numPages) {
+		Dispatcher.dispatch({
+			actionType: FilterConstants.NUM_PAGES_RECEIVED,
+			numPages: numPages
+		})
+	},
+
+	receivePageChange: function (page) {
+		Dispatcher.dispatch({
+			actionType: FilterConstants.PAGE_CHANGE_RECEIVED,
+			page: page
 		})
 	}
 }

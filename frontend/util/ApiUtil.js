@@ -1,6 +1,7 @@
 var MovieActions = require('../actions/movieActions.js');
 var UserActions = require('../actions/userActions');
 var FilterStore = require('../stores/FilterStore');
+var FilterActions = require('../actions/filterActions');
 var MovieStore = require('../stores/MovieStore');
 
 
@@ -89,75 +90,80 @@ module.exports = {
   },
 
   getMasterList: function(filters) {
+    console.log(filters);
     MovieStore.resetMovieLists();
-    for (var pageNum = 1; pageNum <= 2; pageNum++) {
-      var url = 'https://api.themoviedb.org/3/discover/movie', 
-          genreFilter = '',
-          ratingFilter = '',
-          yearFilter = '',
-          key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
+    var url = 'https://api.themoviedb.org/3/discover/movie', 
+        genreFilter = '',
+        ratingFilter = '',
+        yearFilter = '',
+        pageNum = '1',
+        key = '?api_key=1065f29f8db79281f9c287d5ef2ba938';
 
-      if (filters !== undefined) {
-        if (filters['genre'] === "" || filters['genre'] === undefined) {
-          genreFilter = ""
-        } else { genreFilter = '&with_genres=' + filters['genre'] }
+    if (filters !== undefined) {
+      if (filters['genre'] === "" || filters['genre'] === undefined) {
+        genreFilter = ""
+      } else { genreFilter = '&with_genres=' + filters['genre'] }
 
-        if (filters['rating'] === "" || filters['rating'] === undefined) {
-          ratingFilter = ""
-        } else { ratingFilter = '&vote_average.gte=' + filters['rating'] }
+      if (filters['rating'] === "" || filters['rating'] === undefined) {
+        ratingFilter = ""
+      } else { ratingFilter = '&vote_average.gte=' + filters['rating'] }
 
-        if (filters['year'] === "" || filters['year'] === undefined) {
-          yearFilter = ""
-        } else { yearFilter = '&year=' + filters['year'] }
-      }
-          $.ajax({
-              type: 'GET',
-              url: url + key + genreFilter + yearFilter + ratingFilter 
-              + '&vote_count.gte=100&page='+pageNum,
-              async: false,
-              contentType: 'application/json',
-              dataType: 'jsonp',
-              success: function (data) {
-                data['results'].forEach(function(movie) {
-                  var title = movie["title"];
-                  var year = movie["release_date"].slice(0,4);
+      if (filters['year'] === "" || filters['year'] === undefined) {
+        yearFilter = ""
+      } else { yearFilter = '&year=' + filters['year'] }
 
-                  $.ajax({
-                    type: "GET",
-                    url: "https://www.omdbapi.com/?t=" 
-                          + title + "&y=" + year + "&plot=full&r=json&tomatoes=true",
-                    dataType: 'json',
-                    success: function (data) {
-                      if (data["Response"] !== "False") { 
-                        
-                        var key = "&key=AIzaSyBUH_-Cg2LiNdKE79Yw3zl8EKJz1MOrgtc";
-                        var query = "&q=" + data["Title"].split(' ').join('+') + "trailer";
-                        $.ajax({
-                          type: "GET",
-                          movieData: data,
-                          url: "https://www.googleapis.com/youtube/v3/search?part=id" + query + "&type=video" + key,
-                          dataType: 'json',
-                          success: function (data) {
-                            var movie = this.movieData;
-                            movie["trailerId"] = data["items"][0]["id"]["videoId"];
-                            MovieActions.receiveBrowseMovie(movie);
-                           },
-                          error: function (e) {
-                            console.log(e);
-                          }
-                        })
-                      }
-                    }.bind(this),
-                    error: function (e) {
-                      console.log(e);
-                    }
-                  });
-                }.bind(this));
-              },
-              error: function(e) {
-                  console.log(e);
-              }
-      });
+      if (filters['pageNum'] === "" || filters['pageNum'] === undefined) {
+        pageNum = "1"
+      } else { pageNum = filters['pageNum'] }
     }
+        $.ajax({
+            type: 'GET',
+            url: url + key + genreFilter + yearFilter + ratingFilter 
+            + '&vote_count.gte=1&page='+pageNum,
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            success: function (data) {
+              FilterActions.receiveNumPages(data["total_pages"]);
+              data['results'].forEach(function(movie) {
+                var title = movie["title"];
+                var year = movie["release_date"].slice(0,4);
+
+                $.ajax({
+                  type: "GET",
+                  url: "https://www.omdbapi.com/?t=" 
+                        + title + "&y=" + year + "&plot=full&r=json&tomatoes=true",
+                  dataType: 'json',
+                  success: function (data) {
+                    if (data["Response"] !== "False") { 
+                      
+                      var key = "&key=AIzaSyBUH_-Cg2LiNdKE79Yw3zl8EKJz1MOrgtc";
+                      var query = "&q=" + data["Title"].split(' ').join('+') + "trailer";
+                      $.ajax({
+                        type: "GET",
+                        movieData: data,
+                        url: "https://www.googleapis.com/youtube/v3/search?part=id" + query + "&type=video" + key,
+                        dataType: 'json',
+                        success: function (data) {
+                          var movie = this.movieData;
+                          movie["trailerId"] = data["items"][0]["id"]["videoId"];
+                          MovieActions.receiveBrowseMovie(movie);
+                         },
+                        error: function (e) {
+                          console.log(e);
+                        }
+                      })
+                    }
+                  }.bind(this),
+                  error: function (e) {
+                    console.log(e);
+                  }
+                });
+              }.bind(this));
+            },
+            error: function(e) {
+                console.log(e);
+            }
+    });
   }
 };

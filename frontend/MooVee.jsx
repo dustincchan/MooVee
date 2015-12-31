@@ -26,7 +26,8 @@ var GenreFilter = require('./components/filters/GenreFilter');
 
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
-window.UserStore = UserStore
+window.UserStore = UserStore;
+window.FilterStore = FilterStore;
 
 var App = React.createClass({
   render: function() {

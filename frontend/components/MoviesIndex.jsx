@@ -7,6 +7,7 @@ var Search = require('./MoviesSearch');
 var GenreFilter = require('./filters/GenreFilter');
 var Sidebar = require('./filters/FilterSidebar');
 var InfiniteScroll = require('react-infinite-scroll')(React);
+var Pagination = require('./Pagination');
 
 var MoviesIndex = React.createClass({
   getInitialState: function () {
@@ -23,10 +24,6 @@ var MoviesIndex = React.createClass({
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
-  },
-
-  loadfunc: function () {
-
   },
 
   componentWillUnmount: function () {
@@ -53,6 +50,7 @@ var MoviesIndex = React.createClass({
                   )
               })}
             </ul>
+              <Pagination/>
           </div>
         </div>
       </div>

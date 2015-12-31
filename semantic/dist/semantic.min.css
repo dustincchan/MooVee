@@ -19,9 +19,17 @@
     text-align: center;
 }
 
+.ui.grid {
+	height: 135%;
+}
+
 .imdbRating {
 	position: absolute;
   bottom: 75px;
+}
+
+.overlay-information {
+	z-index: -5;
 }
 
 #grid-images {
@@ -32,7 +40,11 @@
 	width: 222px;
 }
 
-
+.huge.ui.pagination.menu {
+  position: absolute;
+  left: 22%;
+  bottom: 14px;
+}
 
 .ui.vertical.menu .item>.label {
 	float: left;
@@ -505,5 +517,6 @@
 .rc-tooltip {
 	display: none;
 }
+
 
 

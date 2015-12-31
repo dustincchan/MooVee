@@ -45,7 +45,7 @@ var SignUp = React.createClass({
 			<div id="sign-up-background" className="ui one column stackable center aligned page grid">
 				<div id="login-box" className="column seven wide">
 					<h2 id="signup-header" className="ui icon header">
-						<img className="ui small image" src="http://i.imgur.com/Q1nTFAg.png"/><br/>
+						<img className="ui small image" src="https://i.imgur.com/Q1nTFAg.png"/><br/>
 						<div id="signup-label" className="ui huge black label">SIGN UP!</div>
 					</h2>
 					<div className="ui form">

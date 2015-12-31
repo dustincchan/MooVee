@@ -60,11 +60,11 @@ var MovieIndexItem = React.createClass({
 						          	<div className="cast"> <b>Cast:</b> <i>{this.props.movie["Actors"]}</i></div>
 						          	<div className="genre"> <b>Genre:</b> <i>{this.props.movie["Genre"]}</i></div>
 						          	<div className="imdbRating">  
-						          		<img id="imdb-rating-icon" src="http://i.imgur.com/oEZd1pe.png"/>
+						          		<img id="imdb-rating-icon" src="https://i.imgur.com/oEZd1pe.png"/>
 						          		<i>{this.props.movie["imdbRating"]}</i>
 						          	</div>
 						          	<div className="tomatoMeter"> 
-						          		<img id="tomato-rating-icon" src="http://i.imgur.com/h2MZ6mK.png"/>
+						          		<img id="tomato-rating-icon" src="https://i.imgur.com/h2MZ6mK.png"/>
 						          		<i>{this.props.movie["tomatoMeter"]}%</i>
 						          	</div>
 						          	<InfoButton movieID={this.props.movie["imdbID"]}/>

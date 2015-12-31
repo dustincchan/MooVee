@@ -23,7 +23,6 @@ var MoviePosterOverlay = React.createClass({
 	openModal: function () {
 		$('.ui.modal.' + this.state.imdbID)
 			.modal({
-				onShow: function () {console.log("showing!!!")},
 				onHide: function () { this.closeModal() }.bind(this)
 			})
 			.modal('show');
