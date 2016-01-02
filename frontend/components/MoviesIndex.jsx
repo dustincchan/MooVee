@@ -32,7 +32,7 @@ var MoviesIndex = React.createClass({
 
   render: function () {
     return (
-      <div className="ui grid">
+      <div id="movies-index-container" className="ui grid">
         <div id="MoviesIndex-and-Sidebar" className="two column row">
           <Sidebar className="four wide column"/>
           <div className="twelve wide column" id="medium images">

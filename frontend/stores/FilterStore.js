@@ -7,8 +7,7 @@ var ApiUtil = require('../util/ApiUtil');
 var filters = {'genre': "", 'rating': "", 'year': "", 'pageNum': "1", 'numPages': ""};
 
 resetFilters = function () {
-	filters = {'genre': "", 'rating': "", 'year': ""};
-	currentPage = 1;
+	filters = {'genre': "", 'rating': "", 'year': "", 'pageNum': "1", 'numPages': ""};
 	ApiUtil.getMasterList(filters);
 };
 

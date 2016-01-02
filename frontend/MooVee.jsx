@@ -21,7 +21,8 @@ var SignUp = require('./components/users/SignUp');
 
 
 //movie lists
-var MovieLists = require('./components/lists/MovieLists');
+var MovieListsIndex = require('./components/lists/MovieListsIndex');
+var MovieListForm = require('./components/lists/MovieListForm');
 var GenreFilter = require('./components/filters/GenreFilter');
 
 window.ApiUtil = ApiUtil;
@@ -45,6 +46,8 @@ var routes = (
     <IndexRoute component={MoviesIndex}/>
     <Route path="users/new" component={SignUp}/>
     <Route path="session/new" component={LogIn}/>
+    <Route path="lists" component={MovieListsIndex}/>
+    <Route path="lists/new" component={MovieListForm}/>
   </Route>
 );
 

@@ -83,19 +83,20 @@ var Pagination = React.createClass ({
 
 	render: function () {
 		return (
-  		<div className="ui huge inverted pagination menu">
-        {this.state.pagesArray.map(function (pageNum) {
-          if (pageNum === 1) {
-            return (<a className="active item" key={pageNum}>{pageNum}</a>)
-          } else if (pageNum === "...") {
-            return (<a className="disabled item" key="...">{pageNum}</a>)
-          } else if (pageNum === "....") {
-            return (<a className="disabled item" key="....">...</a>)
-          } else {
-          return (<a className="item" key={pageNum}>{pageNum}</a>);
-          }
-        }.bind(this))}
-      </div>
+
+    		<div className="ui huge inverted pagination menu">
+          {this.state.pagesArray.map(function (pageNum) {
+            if (pageNum === 1) {
+              return (<a className="active item" key={pageNum}>{pageNum}</a>)
+            } else if (pageNum === "...") {
+              return (<a className="disabled item" key="...">{pageNum}</a>)
+            } else if (pageNum === "....") {
+              return (<a className="disabled item" key="....">...</a>)
+            } else {
+            return (<a className="item" key={pageNum}>{pageNum}</a>);
+            }
+          }.bind(this))}
+        </div>
 		);
 	}
 });

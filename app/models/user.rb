@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :movie_list,
+  class_name: "MovieList",
+  primary_key: :id,
+  foreign_key: :user_id
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
