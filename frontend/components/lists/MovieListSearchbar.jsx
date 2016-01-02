@@ -5,7 +5,7 @@ var MovieListSearchbar = React.createClass({
 		$('.ui.fluid.search.selection.dropdown')
 		  .dropdown({
 		    apiSettings: {
-		      url: '//api.semantic-ui.com/tags/{query}'
+		      url: "https://www.omdbapi.com/?s=star+wars&plot=full&r=json&tomatoes=true"
 		    }
 		  });
 	},
