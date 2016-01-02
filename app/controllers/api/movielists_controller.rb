@@ -1,5 +1,5 @@
 class MovielistsController < ApplicationController
-	before_action :require_signed_in!, except [:index]
+	before_action :require_signed_in!, except: [:index]
 	before_action :require_user_owns_post!, only: [:edit, :update]
 
 	def new
