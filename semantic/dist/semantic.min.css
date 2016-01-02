@@ -34,10 +34,10 @@
     width: 143%;
 }
 
-.ui.fluid.search.selection.dropdown {
+.ui.icon.input {
     width: 44%;
     position: relative;
-    top: 27%;
+    top: 20px;
     float: left;
     left: 14%;
 }
