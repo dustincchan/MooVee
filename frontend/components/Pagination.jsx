@@ -1,7 +1,6 @@
 var React = require('react');
 var FilterStore = require('../stores/FilterStore');
 var FilterActions = require('../actions/filterActions');
-var Paginator = require('react-paginate');
 
 
 var Pagination = React.createClass ({
