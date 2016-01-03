@@ -45,5 +45,5 @@ module.exports = {
       actionType: MovieConstants.YOUTUBE_RECEIVED,
       link: link
     })
-  }
+  },
 };

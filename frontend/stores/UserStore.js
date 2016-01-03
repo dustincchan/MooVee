@@ -4,10 +4,12 @@ var UserConstants = require('../constants/userConstants');
 var UserStore = new Store(AppDispatcher);
 
 var currentUser = "";
+var currentUserData = "";
 var error = "";
 
 var storeCurrentUser = function (userData) {
 	currentUser = userData["username"];
+	currentUserData = userData;
 };
 
 var addError = function(message) {
@@ -24,6 +26,10 @@ UserStore.getError = function() {
 
 UserStore.currentUser = function () {
 	return currentUser;
+};
+
+UserStore.userData = function () {
+	return currentUserData;
 };
 
 UserStore.__onDispatch = function (payload) {

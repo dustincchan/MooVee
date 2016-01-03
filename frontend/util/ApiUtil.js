@@ -50,6 +50,20 @@ module.exports = {
     });
   },
 
+  publishList: function (params) {
+    $.ajax({
+      type: "POST",
+      url: "api/movie_lists",
+      data: {movie_list: params},
+      success: function (data) {
+        MovieListActions.receiveNewMovieList(data);
+      },
+      error: function (e) {
+        MovieListActions.receiveBadMovieListParams(e["responseText"]);
+      }
+    })
+  },
+
   SignUp: function(params) {
     $.ajax({
       type: "POST",
@@ -60,7 +74,7 @@ module.exports = {
       },
       error: function (e) {
         UserActions.receiveBadUserParams(e["responseText"])
-      }
+      } 
     })
   },
 

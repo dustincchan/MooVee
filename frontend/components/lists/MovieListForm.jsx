@@ -1,7 +1,34 @@
 var React = require('react');
 var MovieListSearchbar = require('./MovieListSearchbar');
+var CreateMovieListStore = require('../../stores/CreateMovieListStore');
 
 var MovieListForm = React.createClass({
+	getInitialState: function () {
+		return { movieListItems: [] };
+	},
+
+	componentDidMount: function () {
+		this.movieFormListener = CreateMovieListStore.addListener(this._onChange);
+	},
+
+	componentWillUnmount: function () {
+		this.movieFormListener.remove();
+	},
+
+	publishList: function () {
+		var title = $('.movie.list.title').val();
+		var description = $('.movie.list.description').val();
+		var author_id = UserStore.userData()["id"]
+		ApiUtil.publishList({title: title, 
+												description: description, 
+												author_id: author_id});
+
+	},
+
+	_onChange: function () {
+		this.setState({ movieListItems: CreateMovieListStore.all() });
+	},
+
 	render: function () {
 		return (
 			<div id="movie-list-form">
@@ -20,8 +47,22 @@ var MovieListForm = React.createClass({
 					<MovieListSearchbar/>
 					<div className="movie list searchbar buttons">
 						<button className="ui inverted basic button">SAVE TO MY LISTS</button>
-						<button className="ui inverted green button">PUBLISH</button>
+						<button onClick={this.publishList} className="ui inverted green button">PUBLISH</button>
 					</div>
+				</div>
+
+				<div id="movie-list-form-items" className="ui inverted segment">
+				  <div className="ui inverted relaxed divided list">
+
+						{this.state.movieListItems.map(function (movie) {
+							return  <div className="movie list item" key={movie["imdbID"]}>
+												<div className="content">
+													<div className="header">{movie["Title"]} ({movie["Year"]})</div>
+													{movie["Plot"]}
+												</div>
+											</div>	
+						}.bind(this))}
+				  </div>
 				</div>
 			</div>
 		)

@@ -1,4 +1,4 @@
- /*
+	 /*
  * # Semantic UI - 2.1.6
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
@@ -12,6 +12,21 @@
 
 #MoviesIndex-and-Sidebar {
     background: #333333;
+}
+
+#movie-list-form-items {
+    top: 107px;
+    margin-top:  0px;
+    position: relative;
+    z-index: 0;
+}
+
+.search.result.items {
+    position: absolute;
+    left: 14%;
+    top: 73%;
+    width: 44%;
+    z-index: 1;
 }
 
 #movies-index-container {

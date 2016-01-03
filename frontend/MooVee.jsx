@@ -14,6 +14,7 @@ var UserStore = require('./stores/UserStore');
 var MoviesIndex = require('./components/MoviesIndex');
 var NavBar = require('./components/Nav');
 var ApiUtil = require('./util/ApiUtil');
+var CreateMovieListStore = require('./stores/CreateMovieListStore')
 
 //users
 var LogIn = require('./components/users/LogIn');
@@ -29,6 +30,7 @@ window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 window.UserStore = UserStore;
 window.FilterStore = FilterStore;
+window.MovieListStore = CreateMovieListStore;
 
 var App = React.createClass({
   render: function() {
