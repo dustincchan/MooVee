@@ -1,5 +1,5 @@
 class MovieList < ActiveRecord::Base
-	validates :author, :title, presence: true
+	validates :author_id, :title, presence: true
 
 	has_many :movie_list_items,
 	class_name: "MovieListItem",

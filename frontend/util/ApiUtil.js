@@ -1,8 +1,10 @@
 var MovieActions = require('../actions/movieActions.js');
+var MovieListActions = require('../actions/movieListActions');
 var UserActions = require('../actions/userActions');
 var FilterStore = require('../stores/FilterStore');
 var FilterActions = require('../actions/filterActions');
 var MovieStore = require('../stores/MovieStore');
+var MovieListStore = require('../stores/CreateMovieListStore');
 
 
 module.exports = {
@@ -50,7 +52,25 @@ module.exports = {
     });
   },
 
+  addMovieListItems: function (movies) {
+    var currentListID = MovieListStore.currentListID();
+    movies.forEach(function (movie) {
+      $.ajax({
+        type: "POST",
+        url: "api/movie_list_items",
+        data: {movie_list_item: {imdbID: movie["imdbID"], movie_list_id: currentListID}},
+        success: function (data) {
+          console.log(data);
+        },
+        error: function (e) {
+          debugger;
+        }
+      })
+    }.bind(this))
+  },
+
   publishList: function (params) {
+    console.log(params);
     $.ajax({
       type: "POST",
       url: "api/movie_lists",
@@ -59,6 +79,7 @@ module.exports = {
         MovieListActions.receiveNewMovieList(data);
       },
       error: function (e) {
+        debugger;
         MovieListActions.receiveBadMovieListParams(e["responseText"]);
       }
     })

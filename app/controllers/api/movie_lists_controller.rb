@@ -1,9 +1,13 @@
-class Api::MovielistsController < ApplicationController
+class Api::MovieListsController < ApplicationController
 	before_action :require_signed_in!, except: [:index]
 	before_action :require_user_owns_post!, only: [:edit, :update]
 
 	def new
 		@movie_list = MovieList.new
+	end
+
+	def index
+		render json: MovieList.all
 	end
 
 	def create
@@ -31,7 +35,7 @@ class Api::MovielistsController < ApplicationController
 
 	private
 	def movie_list_params
-		params.require(:movie_list).permit(:title, :description)
+		params.require(:movie_list).permit(:title, :description, :author_id)
 	end
 
 	def require_user_owns_post!

@@ -4,6 +4,9 @@ var MovieConstants = require('../constants/movieConstants');
 var CreateMovieListStore = new Store(AppDispatcher);
 
 var movieListItems = [];
+var listPosted = false;
+var listItemsPosted = false;
+var currentMovieListID = "";
 
 var resetMovieListItems = function () {
 	movieListItems = [];
@@ -11,6 +14,22 @@ var resetMovieListItems = function () {
 
 var addMovieListItem = function (movie) {
 	movieListItems.push(movie);
+};
+
+var movieListPostSuccessful = function () {
+	listPosted = true;
+};
+
+var setCurrentMovieList = function (id) {
+	currentMovieListID = id;
+};
+
+CreateMovieListStore.currentListID = function () {
+	return currentMovieListID;
+};
+
+CreateMovieListStore.listItemsPosted = function () {
+	return listItemsPosted
 };
 
 CreateMovieListStore.all = function () {
@@ -23,7 +42,8 @@ CreateMovieListStore.__onDispatch = function (payload) {
 	    addMovieListItem(payload.movie);
 	    break;
 	  case MovieConstants.MOVIELIST_RECEIVED:
-	  	debugger;
+	  	movieListPostSuccessful();
+	  	setCurrentMovieList(payload.data["id"]);
 	  	break;
   }
   CreateMovieListStore.__emitChange();

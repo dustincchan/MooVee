@@ -1,6 +1,24 @@
 var React = require('react');
 
 var MovieListsIndex = React.createClass({
+	getInitialState: function () {
+		return {movieLists: []}
+	},
+
+	componentDidMount: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/movie_lists/",
+      dataType: "json",
+      success: function (data) {
+        this.setState({movieLists: data});
+      }.bind(this),
+      error: function (e) {
+        debugger;
+      }
+    })
+	},
+
 	render: function () {
 		return ( 
 
@@ -16,6 +34,22 @@ var MovieListsIndex = React.createClass({
 
 		    <div className="ui huge black label">
 		    		<div className="ui grid for movie lists">
+		    			{this.state.movieLists.map(function (movieList) {
+		    				console.log(movieList);
+		    				return (
+		    					<div key={movieList["id"]} className="movie list row">
+		    						<div className="three wide column">
+				      				<img className="movie list poster" src="http://www.hellomandarin.com/ilovechinese/images/08-08/Img214498491.jpg"/>
+				      			</div>
+
+				      			<div className="thirteen wide column">
+				      				<h2>{movieList["title"]}</h2>
+				      				<h4>{movieList["description"]}</h4>
+				      			</div>
+				      		</div>
+		    				)
+		    			})}
+
 		    			<div className="movie list row">
 			    			<div className="three wide column">
 				      		<img className="movie list poster" src="http://img.omdbapi.com/?i=tt2488496&apikey=32fa0dab&amp;h=1000"/>

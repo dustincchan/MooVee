@@ -12,9 +12,8 @@ gem 'newrelic_rpm'
 gem 'uglifier', '>=1.3.0'
 gem 'pg'
 gem 'bcrypt'
-# gem 'imdb'
-# gem 'omdb'
-# gem 'react-rails'
+gem 'seed_dump'
+
 
 group :development do
 	gem 'sqlite3'

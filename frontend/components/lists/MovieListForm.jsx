@@ -4,7 +4,7 @@ var CreateMovieListStore = require('../../stores/CreateMovieListStore');
 
 var MovieListForm = React.createClass({
 	getInitialState: function () {
-		return { movieListItems: [] };
+		return { movieListItems: [], currentListID: "" };
 	},
 
 	componentDidMount: function () {
@@ -22,11 +22,14 @@ var MovieListForm = React.createClass({
 		ApiUtil.publishList({title: title, 
 												description: description, 
 												author_id: author_id});
-
 	},
 
 	_onChange: function () {
 		this.setState({ movieListItems: CreateMovieListStore.all() });
+
+		if (CreateMovieListStore.currentListID() != "" && CreateMovieListStore.listItemsPosted() === false) {
+			ApiUtil.addMovieListItems(this.state.movieListItems);
+		}
 	},
 
 	render: function () {
