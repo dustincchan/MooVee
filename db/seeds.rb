@@ -2,7 +2,8 @@ MovieList.create!([
   {author_id: 3, title: "10 Extremely Underrated Movies To Watch This Friday Night", description: "You will love and enjoy these 10 underrated movies"},
   {author_id: 1, title: "Studio Ghibli's contribution to humanity", description: "Studio Ghibli, Inc. (株式会社スタジオジブリ Kabushiki-gaisha Sutajio Jiburi) is a Japanese animation film studio based in Koganei, Tokyo, Japan. "},
   {author_id: 1, title: "Favorite Pixar Movies", description: "My favorite movies from Pixar from the nineties 'til now."},
-  {author_id: 3, title: "Best Mafia Films of All Time", description: "The mafia has been a source of some of the best stories in film history for filmmakers. The drama, action, and moral dilemmas the characters face always keeps viewers on the edge of their seats wanting more. "}
+  {author_id: 3, title: "Best Mafia Films of All Time", description: "The mafia has been a source of some of the best stories in film history for filmmakers. The drama, action, and moral dilemmas the characters face always keeps viewers on the edge of their seats wanting more. "},
+  {author_id: 3, title: "The Best Spy Movies of 2015", description: "2015 has been a bountiful year for lovers of the spy genre. "}
 ])
 MovieListItem.create!([
   {imdbID: "tt0370986", movie_list_id: 1},
@@ -43,10 +44,17 @@ MovieListItem.create!([
   {imdbID: "tt0119008", movie_list_id: 4},
   {imdbID: "tt0407887", movie_list_id: 4},
   {imdbID: "tt0106489", movie_list_id: 4},
-  {imdbID: "tt0087843", movie_list_id: 4}
+  {imdbID: "tt0087843", movie_list_id: 4},
+  {imdbID: "tt1638355", movie_list_id: 5},
+  {imdbID: "tt2381249", movie_list_id: 5},
+  {imdbID: "tt2379713", movie_list_id: 5},
+  {imdbID: "tt3682448", movie_list_id: 5},
+  {imdbID: "tt3079380", movie_list_id: 5},
+  {imdbID: "tt2679042", movie_list_id: 5},
+  {imdbID: "tt3045616", movie_list_id: 5}
 ])
 User.create!([
   {session_token: "HaPXFADLBfjyqJ45Yt5Sbw", username: "Dustin", password_digest: "$2a$10$DlZPHqK7DPFTMqNEOK6cnuS1x2XO/JGDP6z8VGiq495wKCJ8xxQyO"},
-  {session_token: "xK_GNJ7ZbZHId88LI0Ndpw", username: "Guest", password_digest: "$2a$10$GBzvpk5HL4fPC4W9LQRp8OhVXbIzg.NhZCM2hT98LoYDndSgZDZq6"},
-  {session_token: "NaHVMZXSNr8_DXoFflL76g", username: "Movieguru", password_digest: "$2a$10$ZwY69UKKTBAEAHFbKM1lAuTSsVe.LACbB.zE0qAonZjXDhhYFHmnK"}
+  {session_token: "iyWsM4ufwifCjaHQ6y3tqg", username: "Guest", password_digest: "$2a$10$GBzvpk5HL4fPC4W9LQRp8OhVXbIzg.NhZCM2hT98LoYDndSgZDZq6"},
+  {session_token: "4WSbCZyYkmN7OnEqK_IRwA", username: "Movieguru", password_digest: "$2a$10$ZwY69UKKTBAEAHFbKM1lAuTSsVe.LACbB.zE0qAonZjXDhhYFHmnK"}
 ])
