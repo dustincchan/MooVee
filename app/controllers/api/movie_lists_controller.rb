@@ -1,7 +1,4 @@
 class Api::MovieListsController < ApplicationController
-	before_action :require_signed_in!, except: [:index]
-	before_action :require_user_owns_post!, only: [:edit, :update]
-
 	def new
 		@movie_list = MovieList.new
 	end
