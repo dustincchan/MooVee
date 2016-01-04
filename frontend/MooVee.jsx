@@ -15,6 +15,7 @@ var MoviesIndex = require('./components/MoviesIndex');
 var NavBar = require('./components/Nav');
 var ApiUtil = require('./util/ApiUtil');
 var CreateMovieListStore = require('./stores/CreateMovieListStore')
+var CurrentMovieList = require('./stores/CurrentMovieList');
 
 //users
 var LogIn = require('./components/users/LogIn');
@@ -25,12 +26,14 @@ var SignUp = require('./components/users/SignUp');
 var MovieListsIndex = require('./components/lists/MovieListsIndex');
 var MovieListForm = require('./components/lists/MovieListForm');
 var GenreFilter = require('./components/filters/GenreFilter');
+var MovieListShow = require('./components/lists/MovieListShow');
 
 window.ApiUtil = ApiUtil;
 window.MovieStore = MovieStore;
 window.UserStore = UserStore;
 window.FilterStore = FilterStore;
 window.MovieListStore = CreateMovieListStore;
+window.CurrentMovieList = CurrentMovieList;
 
 var App = React.createClass({
   render: function() {
@@ -50,6 +53,7 @@ var routes = (
     <Route path="session/new" component={LogIn}/>
     <Route path="lists" component={MovieListsIndex}/>
     <Route path="lists/new" component={MovieListForm}/>
+    <Route path="lists/:listId" component={MovieListShow} />
   </Route>
 );
 

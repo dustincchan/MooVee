@@ -1,4 +1,7 @@
 var React = require('react');
+var MovieListIndexItem = require('./MovieListIndexItem');
+var CurrentMovieList = require('../../stores/CurrentMovieList');
+var MovieListActions = require('../../actions/movieListActions');
 
 var MovieListsIndex = React.createClass({
 	getInitialState: function () {
@@ -35,18 +38,8 @@ var MovieListsIndex = React.createClass({
 		    <div className="ui huge black label">
 		    		<div className="ui grid for movie lists">
 		    			{this.state.movieLists.map(function (movieList) {
-		    				console.log(movieList);
 		    				return (
-		    					<div key={movieList["id"]} className="movie list row">
-		    						<div className="three wide column">
-				      				<img className="movie list poster" src="http://www.hellomandarin.com/ilovechinese/images/08-08/Img214498491.jpg"/>
-				      			</div>
-
-				      			<div className="thirteen wide column">
-				      				<h2>{movieList["title"]}</h2>
-				      				<h4>{movieList["description"]}</h4>
-				      			</div>
-				      		</div>
+		    					<MovieListIndexItem key={movieList["id"]} movieList={movieList}/>
 		    				)
 		    			})}
 

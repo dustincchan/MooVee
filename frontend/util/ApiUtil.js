@@ -125,7 +125,6 @@ module.exports = {
   },
 
   getMasterList: function(filters) {
-    console.log(filters);
     MovieStore.resetMovieLists();
     var url = 'https://api.themoviedb.org/3/discover/movie', 
         genreFilter = '',

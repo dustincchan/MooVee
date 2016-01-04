@@ -14,5 +14,12 @@ module.exports = {
   		actionType: MovieConstants.MOVIELIST_RECEIVED,
   		data: data
   	});
+  },
+
+  openMovieList: function (id) {
+    Dispatcher.dispatch({
+      actionType: MovieConstants.OPEN_MOVIELIST,
+      id: id
+    });
   }
 };

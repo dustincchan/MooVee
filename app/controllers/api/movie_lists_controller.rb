@@ -19,6 +19,11 @@ class Api::MovieListsController < ApplicationController
 		end
 	end
 
+	def show
+		@movie_list = MovieList.find(params[:id])
+		render json: @movie_list.movie_list_items
+	end
+
 	def edit
 		@movie_list = MovieList.find(params[:id])
 		render json: @movie_list
