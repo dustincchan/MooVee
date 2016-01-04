@@ -22,11 +22,12 @@
 }
 
 .movie.list.header {
-  width: 692px;
-  position: relative;
-  left: 23%;
-  color: white;
-  border: 2px dashed white;
+    width: 690px;
+    margin: auto;
+    position: relative;
+    left: 8px;
+    color: white;
+    border: 2px dashed white;
 }
 
 .movie.list.items.container {
@@ -66,6 +67,7 @@ img.movie.list.item.backdrop {
 
 #MoviesIndex-and-Sidebar {
     background: #333333;
+    height: 122%;
 }
 
 #movie-list-form-items {

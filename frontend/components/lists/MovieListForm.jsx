@@ -50,7 +50,7 @@ var MovieListForm = React.createClass({
 					<MovieListSearchbar/>
 					<div className="movie list searchbar buttons">
 						<button className="ui inverted basic button">SAVE TO MY LISTS</button>
-						<a href="#/lists/" onClick={this.publishList} className="ui inverted green button">PUBLISH</a>
+						<button onClick={this.publishList} className="ui inverted green button">PUBLISH</button>
 					</div>
 				</div>
 
