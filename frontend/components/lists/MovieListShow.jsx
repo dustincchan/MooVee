@@ -9,7 +9,7 @@ var MovieListShow = React.createClass ({
 	mixins: [History],
 
 	getInitialState: function () {
-		return {movies: []};
+		return {movies: [], title: "", description: ""};
 	},
 
 	componentDidMount: function () {
@@ -21,6 +21,20 @@ var MovieListShow = React.createClass ({
 	      url: "api/movie_lists/" + CurrentMovieList.getListID(),
 	      success: function (data) {
 	      	this.formatResponse(data);
+	      }.bind(this),
+	      error: function (e) {
+	        debugger;
+	      }
+	    })
+
+	    $.ajax({
+	      type: "GET",
+	      url: "api/movie_lists/",
+	      success: function (data) {
+	      	var id = CurrentMovieList.getListID() - 1;
+	      	var title = data[id].title;
+	      	var description = data[id].description;
+	      	this.setState({ title: title, description: description });
 	      }.bind(this),
 	      error: function (e) {
 	        debugger;
@@ -40,7 +54,6 @@ var MovieListShow = React.createClass ({
 	      contentType: 'application/json',
 	      dataType: 'jsonp',
 	      success: function (data) {
-	      	debugger;
 	      	this.setState({ movies: this.state.movies.concat(data.movie_results) });
 	      }.bind(this),
 	      error: function (e) {
@@ -52,6 +65,10 @@ var MovieListShow = React.createClass ({
 	render: function () {
 		return (
 			<div className="ui grid for movie list items">
+				<div className="movie list header">
+					<h1>{this.state.title}</h1>
+					<h2>{this.state.description}</h2>
+				</div>
 				{this.state.movies.map(function (movie) {
 					return (
 						<MovieListShowItem key={movie.id} movie={movie}/>

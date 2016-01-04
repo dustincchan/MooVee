@@ -14,10 +14,54 @@
     background: #333;
 }
 
+.ui.inverted.blue.button {
+  position: relative;
+  height: 50%;
+  top: 5px;
+  left: 10px;
+}
+
+.movie.list.header {
+  width: 692px;
+  position: relative;
+  left: 23%;
+  color: white;
+  border: 2px dashed white;
+}
+
+.movie.list.items.container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.movie.list.item.text {
+    position: absolute;
+    top: 30px;
+    height: 80%;
+    margin-left: 160px;
+    margin-right: 18px;
+    color: white;
+    text-align: left;
+}
+
 #movie-list-item-backdrop {
     width: 700px;
     max-height: 225px;
     overflow: hidden;
+}
+
+img.movie.list.item.backdrop {
+    opacity: 0.4;
+}
+
+.movie.list.item.poster {
+    float: left;
+    position: absolute;
+    width: auto;
+    height: 230px;
+    margin-bottom: 0;
+    z-index: 1;
 }
 
 #MoviesIndex-and-Sidebar {
@@ -369,7 +413,7 @@ textarea.movie.list.description {
 	box-shadow: 0 0px 0px #333;
 }
 
-.movie-poster {
+.movie-browse-poster {
 	background: black;
 	width: 184px;
 	min-height: 280px;
