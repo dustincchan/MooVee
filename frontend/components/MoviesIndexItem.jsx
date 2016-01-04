@@ -67,9 +67,9 @@ var MovieIndexItem = React.createClass({
 						          		<img id="tomato-rating-icon" src="https://i.imgur.com/h2MZ6mK.png"/>
 						          		<i>{this.props.movie["tomatoMeter"]}%</i>
 						          	</div>
-						          	<InfoButton movieID={this.props.movie["imdbID"]}/>
 						          	<div onClick={this.handlePosterClicked} 
-																 className="ui red label">Return to Poster</div>
+						          					 id="return-to-poster-blue-button"
+																 className="ui blue label">Return to Poster</div>
 						          </div>
 						        </div>
 						      </div>

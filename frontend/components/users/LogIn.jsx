@@ -2,8 +2,12 @@ var React = require('react');
 var ApiUtil = require('../../util/ApiUtil');
 var UserStore = require('../../stores/UserStore');
 var MoviePosterOverlay = require('../MoviePosterOverlay');
+var History = require('react-router').History;
+
 
 var LogIn = React.createClass({
+	mixins: [History],
+
 	getInitialState: function () {
 		return {
 			username: "",
@@ -40,6 +44,12 @@ var LogIn = React.createClass({
 	Login: function () {
 		ApiUtil.Login({username: this.state.username, password: this.state.password});
 	},
+
+	guestLogin: function () {
+		debugger;
+    ApiUtil.loginAsGuest();  
+
+  },
 
 	handleKeyPress: function (event) {
 		if (event.charCode === 13) {
@@ -81,6 +91,8 @@ var LogIn = React.createClass({
 					  			 value="Post"
 					  			 className="positive ui button">Log in!
 					  </button>
+					  <div className="or button divider">or</div>
+					  <button onClick={this.guestLogin} className="ui orange button">Guest Log in!</button>
 					  <div className="error-message">{this.state.error}</div>
 					</div>
 				</div>

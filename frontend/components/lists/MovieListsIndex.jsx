@@ -27,8 +27,8 @@ var MovieListsIndex = React.createClass({
 
 			<div id="movie-lists-index" className="ui inverted segment">
 				<div id="movie-lists-buttons">
-					<div className="ui inverted large button">MY LISTS</div>
-					<div className="ui inverted large button"><i className="ui heart icon"/>BOOKMARKED LISTS</div>
+					<div id="my-lists-button" className="ui inverted large button">MY LISTS</div>
+					<div id="bookmarked-lists-button" className="ui inverted large button"><i className="ui heart icon"/>BOOKMARKED LISTS</div>
 					<a href="#/lists/new" className="ui right floated inverted large button">
 						<i className="ui plus icon"/>CREATE A LIST
 					</a>

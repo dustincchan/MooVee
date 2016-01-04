@@ -51,7 +51,6 @@ var SignUp = React.createClass({
 					<div className="ui form">
 					  <div className="login-fields">
 					    <div className="field">
-					      <label className="ui pointing below blue basic label">New User</label>
 					      <input 
 					      	onChange={this.handleUserChange} 
 					      	id="username-field" 
@@ -59,7 +58,6 @@ var SignUp = React.createClass({
 					      	placeholder="Username"/>
 					    </div>
 					    <div className="field">
-					      <label className="ui pointing below blue basic label">New Password</label>
 					      <input 
 					      	onChange={this.handlePassChange} 
 					      	onKeyPress={this.handleKeyPress}
