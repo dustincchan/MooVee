@@ -52,6 +52,7 @@
     "react-mixin": "^3.0.3",
     "react-nouislider": "^1.6.0",
     "react-router": "1.0.2",
+    "react-slick": "^0.9.3",
     "require-dot-file": "^0.4.0",
     "run-sequence": "^1.1.5",
     "semantic-ui": "^2.1.6",

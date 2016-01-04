@@ -6,6 +6,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
+var Welcome = require('./components/Welcome');
 
 //flux/stores
 var FilterStore = require('./stores/FilterStore');
@@ -47,12 +48,13 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={MoviesIndex}/>
+    <IndexRoute component={Welcome}/>
     <Route path="users/new" component={SignUp}/>
     <Route path="session/new" component={LogIn}/>
     <Route path="lists" component={MovieListsIndex}/>
     <Route path="lists/new" component={MovieListForm}/>
-    <Route path="lists/:listId" component={MovieListShow} />
+    <Route path="lists/:listId" component={MovieListShow}/>
+    <Route path="browse" component={MoviesIndex}/>
   </Route>
 );
 
