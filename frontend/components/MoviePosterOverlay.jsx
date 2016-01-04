@@ -53,11 +53,11 @@ var MoviePosterOverlay = React.createClass({
 				  <div className="header">
 				  	{this.props.movie["Title"] + " Trailer"}
 				  </div>
-			  		  <div className={this.state.embedClassName}
-			  		  	data-source="youtube" 
-			  		  	data-id={this.props.movie["trailerId"]}
-			  		  	data-placeholder={this.state.thumbLink}>
-							</div>
+	  		  <div className={this.state.embedClassName}
+	  		  	data-source="youtube" 
+	  		  	data-id={this.props.movie["trailerId"]}
+	  		  	data-placeholder={this.state.thumbLink}>
+					</div>
 				</div>
 			</div>
 		)
