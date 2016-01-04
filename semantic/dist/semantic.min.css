@@ -15,20 +15,21 @@
     font-size: 50px;
     position: relative;
     text-align: center;
-    bottom: 750px;
+    top: 18px;
+}
+
+.welcome.buttons.container {
+    text-align: center;
 }
 
 #browse-movies-button {
     position: relative;
-    left: 35%;
-    top: -748px;
+    left: -1%;
     border-radius: 30px;
 }
 
 #browse-lists-button {
     position: relative;
-    left: 38%;
-    top: -748px;
     border-radius: 30px;
 }
 
@@ -36,7 +37,6 @@ h2.welcome.subheader {
     position: relative;
     text-align: center;
     color: white;
-    bottom: 765px;
 }
 
 .ui.grid.for.movie.list.items {
@@ -45,7 +45,9 @@ h2.welcome.subheader {
 
 #welcome-background-image {
     opacity: 0.2;
+    position: fixed;
     width: 100%;
+    top: 7px;
 }
 
 .ui.orange.button {
@@ -255,12 +257,11 @@ textarea.movie.list.description {
 }
 
 .huge.ui.pagination.menu {
-  position: absolute;
-  left: 22%;
-  bottom: 14px;
+  position: relative;
+  margin-left: 19%;
+  bottom: -26px;
   box-shadow: 4px 4px 4px rgba(0,0,0,.85);
 }
-
 .ui.vertical.menu .item>.label {
 	float: left;
 }
