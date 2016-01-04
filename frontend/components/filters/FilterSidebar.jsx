@@ -1,7 +1,6 @@
 var React = require('react');
 var FilterStore = require('../../stores/FilterStore');
 var MoviesSearch = require('../MoviesSearch');
-var GenreFilter = require('./GenreFilter');
 var RatingSlider = require('./RatingSlider');
 var FilterActions = require('../../actions/filterActions');
 var YearFilter = require('./YearFilter');

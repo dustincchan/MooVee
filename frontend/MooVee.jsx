@@ -25,7 +25,6 @@ var SignUp = require('./components/users/SignUp');
 //movie lists
 var MovieListsIndex = require('./components/lists/MovieListsIndex');
 var MovieListForm = require('./components/lists/MovieListForm');
-var GenreFilter = require('./components/filters/GenreFilter');
 var MovieListShow = require('./components/lists/MovieListShow');
 
 window.ApiUtil = ApiUtil;

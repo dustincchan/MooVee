@@ -5,7 +5,7 @@ var Navigation = require('react-router').Navigation;
 var UserStore = require('../stores/UserStore');
 var UserActions = require('../actions/userActions');
 var ApiUtil = require('../util/ApiUtil');
-var LoginModal = require('./users/LogIn');
+var Login = require('./users/LogIn');
 
 var NavBar = React.createClass({
   getInitialState: function () {
@@ -13,16 +13,18 @@ var NavBar = React.createClass({
   },
 
   componentDidMount: function () {
-    $('.ui.basic.modal.login').modal();
     this.userListener = UserStore.addListener(this._userChanged);
+    $('.ui.inverted.large.menu')
+    .on('click', '.nav.item', function() {
+      $(this)
+        .addClass('active')
+        .siblings('.item')
+          .removeClass('active');
+    });
   },
 
   componentWillUnmount: function () {
     this.userListener.remove();
-  },
-
-  openLoginModal: function () {
-    $('.ui.basic.modal.login').modal('show');
   },
 
   _userChanged: function () {
@@ -33,22 +35,18 @@ var NavBar = React.createClass({
     if (UserStore.currentUser() === "") {
       return(
         <div className="ui inverted large menu">
-          <a href="#" className="ui active item">Browse Movies</a>
-          <a href="#/lists/" className="item">Browse Movie Lists</a>
+          <a href="#" className="ui active nav item">Browse Movies</a>
+          <a href="#/lists/" className="nav item">Browse Movie Lists</a>
           <a href="#/lists/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
-          <a href="#/users/new" className="right floated item">Sign up!</a>
-          <a onClick={this.openLoginModal} className="item">Log In</a>
-          <div className="ui basic modal login">
-            <i className="close icon login"/>
-            <LoginModal/>
-          </div>
+          <a href="#/users/new" className="right floated nav item">Sign up!</a>
+          <a href="#/session/new" className="nav item">Log In</a>
         </div>
         );
     } else {
       return (
         <div className="ui inverted large menu">
-          <a href="#" className="ui active item">Browse Movies</a>
-          <a href="#/lists/" className="item">Browse Movie Lists</a>
+          <a href="#" className="ui active nav item">Browse Movies</a>
+          <a href="#/lists/" className="nav item">Browse Movie Lists</a>
           <a href="#/lists/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
           <div className="right floated inactive item">{this.state.currentUser}</div>
           <a className="item">Log Out</a>

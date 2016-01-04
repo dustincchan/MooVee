@@ -18,6 +18,10 @@ var LogIn = React.createClass({
 	},
 
 	componentDidMount: function () {
+		$('#signup-button').click(function () {
+			this.Login();
+		}.bind(this));
+
 		this.userListener = UserStore.addListener(this._userChange);
 	},
 
@@ -42,11 +46,10 @@ var LogIn = React.createClass({
 	},
 
 	Login: function () {
-		ApiUtil.Login({username: this.state.username, password: this.state.password});
+		ApiUtil.Login({username: $('#username-field').val(), password: $('#password-field').val()});
 	},
 
 	guestLogin: function () {
-		debugger;
     ApiUtil.loginAsGuest();  
 
   },
@@ -92,7 +95,7 @@ var LogIn = React.createClass({
 					  			 className="positive ui button">Log in!
 					  </button>
 					  <div className="or button divider">or</div>
-					  <button onClick={this.guestLogin} className="ui orange button">Guest Log in!</button>
+					  <button id="#guest-login-button" onClick={this.guestLogin} className="ui orange button">Guest Log in!</button>
 					  <div className="error-message">{this.state.error}</div>
 					</div>
 				</div>

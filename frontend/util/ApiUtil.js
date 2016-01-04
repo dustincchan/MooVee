@@ -153,7 +153,7 @@ module.exports = {
         $.ajax({
             type: 'GET',
             url: url + key + genreFilter + yearFilter + ratingFilter 
-            + '&vote_count.gte=1&page='+pageNum,
+            + '&vote_count.gte=1&page='+ pageNum,
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
