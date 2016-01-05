@@ -15,6 +15,18 @@
     right:10%;
 }
 
+figure.coverflow__figure__1IP2r {
+    zoom: 170%;
+}
+
+.coverflow__container__3WgC- {
+    position: relative;
+    background: rgba(0,0,0,.1);
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
 .welcome.header {
     color: white;
     font-size: 50px;
