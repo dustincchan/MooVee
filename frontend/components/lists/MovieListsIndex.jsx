@@ -5,8 +5,9 @@ var MovieListActions = require('../../actions/movieListActions');
 var UserStore = require('../../stores/UserStore');
 
 var MovieListsIndex = React.createClass({
+
 	getInitialState: function () {
-		return {movieLists: []}
+		return {movieLists: [], users: []}
 	},
 
 	componentDidMount: function () {
@@ -16,11 +17,25 @@ var MovieListsIndex = React.createClass({
       dataType: "json",
       success: function (data) {
         this.setState({movieLists: data});
+        this.getAuthorNames();
       }.bind(this),
       error: function (e) {
         debugger;
       }
     })
+	},
+
+	getAuthorNames: function () {
+		this.state.movieLists.map(function (movieList) {
+			$.ajax({
+				type: "GET",
+				url: "api/users/" + movieList.author_id,
+				dataType: "json",
+				success: function (data) {
+					this.setState({ users: this.state.users.concat(data.username) })
+				}.bind(this)
+			})
+		}.bind(this))
 	},
 
 	render: function () {
@@ -34,14 +49,14 @@ var MovieListsIndex = React.createClass({
 						<i className="ui plus icon"/>CREATE A LIST
 					</a>
 				</div>
-				
+
 		    <div className="ui huge black label">
 		    		<div className="ui grid for movie lists">
 		    			{this.state.movieLists.map(function (movieList) {
 		    				return (
 		    					<MovieListIndexItem key={movieList["id"]} movieList={movieList}/>
 		    				)
-		    			})}
+		    			}.bind(this))}
 		        </div>
 			  </div>
 			</div>
