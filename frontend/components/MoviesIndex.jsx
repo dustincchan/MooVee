@@ -7,8 +7,11 @@ var Search = require('./MoviesSearch');
 var Sidebar = require('./filters/FilterSidebar');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 var Pagination = require('./Pagination');
+var TimerMixin = require('react-timer-mixin');
 
 var MoviesIndex = React.createClass({
+  mixins: [TimerMixin],
+
   getInitialState: function () {
     return { movies: MovieStore.all() };
   },
@@ -23,7 +26,10 @@ var MoviesIndex = React.createClass({
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
-  },
+    this.setTimeout(
+      () => { $('#movies-loading-dimmer').hide(); },
+      2000
+    );  },
 
   componentWillUnmount: function () {
     this.movieListener.remove();
@@ -35,6 +41,13 @@ var MoviesIndex = React.createClass({
         <div id="MoviesIndex-and-Sidebar" className="two column row">
           <Sidebar className="four wide column"/>
           <div className="twelve wide column" id="medium images">
+
+              <div id="movies-loading-dimmer"> className="ui segment">
+                <div className="ui active dimmer">
+                  <div className="ui text large loader">Loading</div>
+                </div>
+              </div>
+
             <ul className="ui right floated medium images" id="grid-images">
               <div className="ui huge black label">
               {MovieStore.browsingMode() === true ? "BROWSING" : "SEARCHING"}

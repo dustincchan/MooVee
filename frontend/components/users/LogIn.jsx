@@ -58,7 +58,9 @@ var LogIn = React.createClass({
 
 	guestLogin: function () {
     ApiUtil.loginAsGuest();  
-
+    $('#nav-movies-button').addClass('active')
+        .siblings('.item')
+          .removeClass('active');
   },
 
 	handleKeyPress: function (event) {
