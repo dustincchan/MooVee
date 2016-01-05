@@ -7,10 +7,8 @@ var Search = require('./MoviesSearch');
 var Sidebar = require('./filters/FilterSidebar');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 var Pagination = require('./Pagination');
-var TimerMixin = require('react-timer-mixin');
 
 var MoviesIndex = React.createClass({
-  mixins: [TimerMixin],
 
   getInitialState: function () {
     return { movies: MovieStore.all() };
@@ -26,10 +24,8 @@ var MoviesIndex = React.createClass({
 
   componentDidMount: function () {
     this.movieListener = MovieStore.addListener(this._onChange);
-    this.setTimeout(
-      () => { $('#movies-loading-dimmer').hide(); },
-      2000
-    );  },
+    setTimeout(function() { $('#movies-loading-dimmer').hide(); }.bind(this), 2000);  
+  },
 
   componentWillUnmount: function () {
     this.movieListener.remove();
