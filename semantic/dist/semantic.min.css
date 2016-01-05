@@ -398,6 +398,8 @@ textarea.movie.list.description {
 
 .error-message {
 	color: red;
+	position: relative;
+	bottom: 50px;
 }
 
 #year-released {

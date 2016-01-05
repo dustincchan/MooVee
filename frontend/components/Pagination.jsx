@@ -36,6 +36,8 @@ var Pagination = React.createClass ({
     }
 
     if (this.state.currentPage != FilterStore.all()['pageNum']) {
+      $('#movies-loading-dimmer').show();
+      setTimeout(function() { $('#movies-loading-dimmer').hide(); }.bind(this), 2000);
       this.setState({ currentPage: FilterStore.all()['pageNum'] });
       this.determinePagination();
     }
