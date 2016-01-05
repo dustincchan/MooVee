@@ -32,6 +32,13 @@ CreateMovieListStore.listItemsPosted = function () {
 	return listItemsPosted
 };
 
+CreateMovieListStore.resetStore = function () {
+	movieListItems = [];
+	listPosted = false;
+	listItemsPosted = false;
+	currentMovieListID ="";
+};
+
 CreateMovieListStore.all = function () {
 	return movieListItems;
 };

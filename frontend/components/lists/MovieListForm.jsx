@@ -1,8 +1,11 @@
 var React = require('react');
 var MovieListSearchbar = require('./MovieListSearchbar');
 var CreateMovieListStore = require('../../stores/CreateMovieListStore');
+var History = require('react-router').History;
 
 var MovieListForm = React.createClass({
+	mixins: [History],
+
 	getInitialState: function () {
 		return { movieListItems: [], currentListID: "" };
 	},
@@ -22,6 +25,11 @@ var MovieListForm = React.createClass({
 		ApiUtil.publishList({title: title, 
 												description: description, 
 												author_id: author_id});
+	},
+
+	deleteList: function () {
+		this.history.pushState(null, '/lists/', {});
+		CreateMovieListStore.resetStore();
 	},
 
 	_onChange: function () {
@@ -45,7 +53,7 @@ var MovieListForm = React.createClass({
 						<textarea className="movie list description" rows="2" placeholder="Description"/>
 					</div>
 				</form>
-				<button className="ui inverted orange basic button">DELETE THIS LIST</button>
+				<button onClick={this.deleteList} className="ui inverted orange basic button">DELETE THIS LIST</button>
 				<div className="movie list search bar">
 					<MovieListSearchbar/>
 					<div className="movie list searchbar buttons">

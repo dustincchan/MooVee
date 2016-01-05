@@ -5,7 +5,6 @@ var ApiUtil = require('../util/ApiUtil');
 var MovieIndexItem = require('./MoviesIndexItem');
 var Search = require('./MoviesSearch');
 var Sidebar = require('./filters/FilterSidebar');
-var InfiniteScroll = require('react-infinite-scroll')(React);
 var Pagination = require('./Pagination');
 
 var MoviesIndex = React.createClass({
