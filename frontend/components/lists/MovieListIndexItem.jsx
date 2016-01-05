@@ -17,7 +17,7 @@ var MovieListIndexItem = React.createClass({
 		return (
 			<div onClick={this.showMovieList} className="movie list row">
 				<div className="three wide column">
-  				<img className="movie list poster" src="http://www.hellomandarin.com/ilovechinese/images/08-08/Img214498491.jpg"/>
+  				<img className="movie list poster" src="./stock movie list.jpg"/>
   			</div>
 
   			<div className="thirteen wide column">

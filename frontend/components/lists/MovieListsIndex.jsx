@@ -24,7 +24,6 @@ var MovieListsIndex = React.createClass({
 	},
 
 	render: function () {
-
 		return ( 
 			<div id="movie-lists-index" className="ui inverted segment">
 				<div id="movie-lists-buttons">
@@ -35,8 +34,7 @@ var MovieListsIndex = React.createClass({
 						<i className="ui plus icon"/>CREATE A LIST
 					</a>
 				</div>
-
-
+				
 		    <div className="ui huge black label">
 		    		<div className="ui grid for movie lists">
 		    			{this.state.movieLists.map(function (movieList) {
