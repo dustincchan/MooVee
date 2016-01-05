@@ -39,17 +39,18 @@ var Welcome = React.createClass({
 							id="browse-lists-button" 
 							className="ui inverted blue basic button">BROWSE LISTS</a>
 					</div>
-
-					<div className="welcome carousel container">
-					  <Coverflow width={"2000"} height={"500"}
-					    displayQuantityOfSide={2}
-					    navigation={false}
-					    enableScroll={true}
-					    >
-					    <img src='./carousel browse.png' alt='Browse Movies' url="./carousel browse.png" />
-					    <img src='/carousel movielist.png' alt='Create Lists' url="./carousel movielist.png"/>
-					    <img src='carousel trailer.png' alt='Watch Trailers' url="./carousel trailer.png"/>
-					  </Coverflow>
+					<div className="carousel container">
+						<div className="welcome carousel">
+							  <Coverflow width={"auto"} height={"500"}
+							    displayQuantityOfSide={2}
+							    navigation={false}
+							    enableScroll={true}
+							    >
+							    <img src='./carousel browse.png' alt='Browse Movies' url="./carousel browse.png" />
+							    <img src='/carousel movielist.png' alt='Create Lists' url="./carousel movielist.png"/>
+							    <img src='carousel trailer.png' alt='Watch Trailers' url="./carousel trailer.png"/>
+							  </Coverflow>
+						</div>
 					</div>
 			</div>
 		)
