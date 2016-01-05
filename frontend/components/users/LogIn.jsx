@@ -18,10 +18,17 @@ var LogIn = React.createClass({
 	},
 
 	componentDidMount: function () {
+    $('#guest-login-button')
+    .on('click', function() {
+      $('#nav-movies-button')
+        .addClass('active')
+        .siblings('.item')
+          .removeClass('active');
+    });
+
 		$('#signup-button').click(function () {
 			this.Login();
 		}.bind(this));
-
 		this.userListener = UserStore.addListener(this._userChange);
 	},
 
@@ -29,7 +36,7 @@ var LogIn = React.createClass({
 		this.setState({ error: UserStore.getError() })
 		if (this.state.error === "") { 
 			this.setState({ currentUser: UserStore.currentUser() });
-			this.props.history.pushState(null, "/");
+			this.props.history.pushState(null, "/browse");
 		}
 	},
 

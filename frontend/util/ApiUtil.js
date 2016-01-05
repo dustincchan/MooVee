@@ -162,15 +162,14 @@ module.exports = {
               data['results'].forEach(function(movie) {
                 var title = movie["title"];
                 var year = movie["release_date"].slice(0,4);
-
                 $.ajax({
+                  posterPath: movie.poster_path,
                   type: "GET",
                   url: "https://www.omdbapi.com/?t=" 
                         + title + "&y=" + year + "&plot=full&r=json&tomatoes=true",
                   dataType: 'json',
                   success: function (data) {
                     if (data["Response"] !== "False") { 
-                      
                       var key = "&key=AIzaSyBUH_-Cg2LiNdKE79Yw3zl8EKJz1MOrgtc";
                       var query = "&q=" + data["Title"].split(' ').join('+') + "trailer";
                       $.ajax({

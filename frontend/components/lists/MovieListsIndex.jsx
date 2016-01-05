@@ -2,6 +2,7 @@ var React = require('react');
 var MovieListIndexItem = require('./MovieListIndexItem');
 var CurrentMovieList = require('../../stores/CurrentMovieList');
 var MovieListActions = require('../../actions/movieListActions');
+var UserStore = require('../../stores/UserStore');
 
 var MovieListsIndex = React.createClass({
 	getInitialState: function () {
@@ -23,13 +24,14 @@ var MovieListsIndex = React.createClass({
 	},
 
 	render: function () {
-		return ( 
 
+		return ( 
 			<div id="movie-lists-index" className="ui inverted segment">
 				<div id="movie-lists-buttons">
 					<div id="my-lists-button" className="ui inverted large button">MY LISTS</div>
 					<div id="bookmarked-lists-button" className="ui inverted large button"><i className="ui heart icon"/>BOOKMARKED LISTS</div>
-					<a href="#/lists/new" className="ui right floated inverted large button">
+					<a href={UserStore.currentUser() == "" ? "#/session/new"  : "#/lists/new"}
+						className="ui right floated inverted large button">
 						<i className="ui plus icon"/>CREATE A LIST
 					</a>
 				</div>

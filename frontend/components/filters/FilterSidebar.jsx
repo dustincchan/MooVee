@@ -1,5 +1,6 @@
 var React = require('react');
 var FilterStore = require('../../stores/FilterStore');
+var MovieStore = require('../../stores/MovieStore');
 var MoviesSearch = require('../MoviesSearch');
 var RatingSlider = require('./RatingSlider');
 var FilterActions = require('../../actions/filterActions');
@@ -17,6 +18,10 @@ var Sidebar = React.createClass ({
         .siblings('.item')
           .removeClass('active');
     });
+
+    $('.genre.item').on('click', function () {
+      MovieStore.browseMode();
+    }.bind(this))
   },
 
   resetFilters: function () {

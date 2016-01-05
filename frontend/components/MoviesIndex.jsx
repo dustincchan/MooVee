@@ -36,7 +36,9 @@ var MoviesIndex = React.createClass({
           <Sidebar className="four wide column"/>
           <div className="twelve wide column" id="medium images">
             <ul className="ui right floated medium images" id="grid-images">
-              <div className="ui huge black label">BROWSING</div>
+              <div className="ui huge black label">
+              {MovieStore.browsingMode() === true ? "BROWSING" : "SEARCHING"}
+              </div>
               <br/><br/>
               {this.state.movies.map(function (movie) {
                 return (

@@ -17,12 +17,12 @@ var resetMovieLists = function () {
   _masterList = [];
 };
 
-MovieStore.toggleBrowsing = function () {
-  if (browsing) {
-    browsing = false;
-  } else {
-    browsing = true;
-  }
+MovieStore.searchMode = function () {
+  browsing = false;
+};
+
+MovieStore.browseMode = function () {
+  browsing = true;
 };
 
 var resetTrailer = function () {

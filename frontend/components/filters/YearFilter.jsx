@@ -26,7 +26,7 @@ var YearFilter = React.createClass ({
 					defaultValue="1900"
 					onAfterChange={this.handleRatingChange} 
 					onChange={this.onSliderChange} 
-					min="1900" max="2015" step="1"/>
+					min={1900} max={2015} step={1}/>
 					<div id="year-released-label" className="ui medium grey label">{this.state.value}</div>
       </div>
 			

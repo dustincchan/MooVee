@@ -18,7 +18,7 @@ var SignUp = React.createClass({
 	_userChange: function () {
 		this.setState({ error: UserStore.getError() })
 		if (this.state.error === "") {
-			this.props.history.pushState(null, "/");
+			this.props.history.pushState(null, "/browse");
 		}
 	},
 

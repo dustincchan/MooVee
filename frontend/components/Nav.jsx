@@ -35,9 +35,9 @@ var NavBar = React.createClass({
     if (UserStore.currentUser() === "") {
       return(
         <div className="ui inverted large menu">
-          <a href="#/browse" className="ui nav item">Movies</a>
-          <a href="#/lists/" className="nav item">Movie Lists</a>
-          <a href="#/lists/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
+          <a id="nav-movies-button" href="#/browse" className="ui nav item">Movies</a>
+          <a id="nav-lists-button" href="#/lists/" className="nav item">Movie Lists</a>
+          <a href="#/session/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
           <a href="#/users/new" className="right floated nav item">Sign up!</a>
           <a href="#/session/new" className="nav item">Log In</a>
         </div>
@@ -45,8 +45,8 @@ var NavBar = React.createClass({
     } else {
       return (
         <div className="ui inverted large menu">
-          <a href="#/browse" className="ui active nav item">Browse Movies</a>
-          <a href="#/lists/" className="nav item">Browse Movie Lists</a>
+          <a id="nav-movies-button" href="#/browse" className="ui active nav item">Browse Movies</a>
+          <a id="nav-lists-button" href="#/lists/" className="nav item">Browse Movie Lists</a>
           <a href="#/lists/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
           <div className="right floated inactive item">{this.state.currentUser}</div>
           <a className="item">Log Out</a>
