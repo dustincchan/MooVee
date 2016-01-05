@@ -46,8 +46,8 @@ var Welcome = React.createClass({
 							    navigation={false}
 							    enableScroll={true}
 							    >
-							    <img src='./carousel browse.png' alt='Browse Movies' url="./carousel browse.png" />
 							    <img src='/carousel movielist.png' alt='Create Lists' url="./carousel movielist.png"/>
+							    <img src='./carousel browse.png' alt='Browse Movies' url="./carousel browse.png" />
 							    <img src='carousel trailer.png' alt='Watch Trailers' url="./carousel trailer.png"/>
 							  </Coverflow>
 						</div>

@@ -430,11 +430,16 @@ textarea.movie.list.description {
 	right: 3px;
 }
 
+.overlay-information {
+    position: relative;
+    bottom: 291px;
+    z-index: 1;
+}
+
 .ui.massive.grey.label {
   z-index: 102;
   text-align: center;
   height: 280px;
-  bottom: 291px;
   width: 184px;
   position: relative;
   right: 3px;
