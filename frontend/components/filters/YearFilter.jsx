@@ -16,6 +16,8 @@ var YearFilter = React.createClass ({
 	handleRatingChange: function () {
 		MovieStore.resetMovieLists();
 		FilterActions.receiveYear(this.state.value);
+		$('#movies-loading-dimmer').show();
+    setTimeout(function() { $('#movies-loading-dimmer').hide(); }.bind(this), 2000);
 	},
 
 	render: function () {

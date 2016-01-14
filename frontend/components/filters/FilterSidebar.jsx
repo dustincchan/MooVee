@@ -11,6 +11,8 @@ var Sidebar = React.createClass ({
   componentDidMount: function () {
     $('.ui.menu')
     .on('click', '.genre.item', function() {
+      $('#movies-loading-dimmer').show();
+      setTimeout(function() { $('#movies-loading-dimmer').hide(); }.bind(this), 2000);
       genreValue = this.attributes[1]["value"];
       FilterActions.receiveGenreFilter(genreValue);
       $(this)

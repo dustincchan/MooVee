@@ -22,6 +22,8 @@ var RatingSlider = React.createClass ({
 		} else {
 			MovieActions.receiveRatingChange(this.state.value);
 		}
+		$('#movies-loading-dimmer').show();
+    setTimeout(function() { $('#movies-loading-dimmer').hide(); }.bind(this), 2000);
 	},
 
 	render: function () {
