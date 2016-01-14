@@ -274,10 +274,11 @@ textarea.movie.list.description {
 }
 
 .huge.ui.pagination.menu {
-  position: relative;
-  margin-left: 19%;
-  bottom: -26px;
-  box-shadow: 4px 4px 4px rgba(0,0,0,.85);
+    position: relative;
+    left: 28%;
+    text-align: center;
+    bottom: -26px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,.85);
 }
 .ui.vertical.menu .item>.label {
 	float: left;
@@ -758,6 +759,13 @@ textarea.movie.list.description {
 
 .rc-tooltip {
 	display: none;
+}
+
+@media screen and (min-width: 1800px) {
+	.welcome.buttons.container {
+    text-align: center;
+    margin-bottom: 3%;
+	}
 }
 
 
