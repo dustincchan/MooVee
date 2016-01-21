@@ -1,8 +1,6 @@
 # MooVee.me
 
-[Heroku link][heroku]
-
-
+Live: www.mooveeme.com
 
 ## Minimum Viable Product
 
@@ -11,11 +9,9 @@ MooVee.me is built using Rails and React.js. Users are able to:
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, edit, delete, upvote, and read Movie lists
-- [ ] Blacklist Movies, Favorite Movies, and Hide Movies already watched
-- [ ] Search for Movies using an autocomplete search bar
-- [ ] Search for Movies based on IMDB/Metacritic/RottenTomatoes rating
-- [ ] Search for Movies based on other criteria (pg/pg13/R/etc rating, genre)
+- [ ] Create, and view visually stunning movie lists
+- [ ] Search for Movies using a search bar
+- [ ] Browse movies based off IMDB rating, genre, year, and a variety of other filters
 
 ## Design Docs
 * [View Wireframes][view]
