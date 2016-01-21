@@ -4,6 +4,7 @@ var Coverflow = require('react-coverflow');
 
 var Welcome = React.createClass({
 	componentDidMount: function () {
+		$('#navbar').fadeTo(1000, 0);
     $('.ui.inverted.large.menu')
     .on('click', '.nav.item', function() {
       $(this)
@@ -15,10 +16,12 @@ var Welcome = React.createClass({
 
   clickedMovies: function () {
   	$('#nav-movies-button').addClass('active').siblings('.item').removeClass('active');
+  	$('#navbar').fadeTo(1000, 1);
   },
 
   clickedLists: function () {
   	$('#nav-lists-button').addClass('active').siblings('.item').removeClass('active');
+  	$('#navbar').fadeTo(1000, 1);
   },
 
 	render: function () {
@@ -46,9 +49,9 @@ var Welcome = React.createClass({
 							    navigation={false}
 							    enableScroll={true}
 							    >
-							    <img src='/carousel movielist.png' alt='Create Lists' url="./carousel movielist.png"/>
-							    <img src='./carousel browse.png' alt='Browse Movies' url="./carousel browse.png" />
-							    <img src='carousel trailer.png' alt='Watch Trailers' url="./carousel trailer.png"/>
+							    <img src='/carousel movielist.png' alt='Create Lists' url="/#/browse"/>
+							    <img src='./carousel browse.png' alt='Browse Movies' url="/#/browse" />
+							    <img src='carousel trailer.png' alt='Watch Trailers' url="/#/browse"/>
 							  </Coverflow>
 						</div>
 					</div>

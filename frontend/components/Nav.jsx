@@ -34,7 +34,7 @@ var NavBar = React.createClass({
   render: function () {
     if (UserStore.currentUser() === "") {
       return(
-        <div className="ui inverted large menu">
+        <div id="navbar" className="ui inverted large menu">
           <a id="nav-movies-button" href="#/browse" className="ui nav item">Movies</a>
           <a id="nav-lists-button" href="#/lists/" className="nav item">Movie Lists</a>
           <a href="#/session/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>
@@ -44,7 +44,7 @@ var NavBar = React.createClass({
         );
     } else {
       return (
-        <div className="ui inverted large menu">
+        <div id="navbar" className="ui inverted large menu">
           <a id="nav-movies-button" href="#/browse" className="ui active nav item">Browse Movies</a>
           <a id="nav-lists-button" href="#/lists/" className="nav item">Browse Movie Lists</a>
           <a href="#/lists/new" className="ui inverted blue button"><i className="ui plus icon"/>Create a Movie List</a>

@@ -132,8 +132,7 @@ img.movie.list.item.backdrop {
 }
 
 #MoviesIndex-and-Sidebar {
-    background: #333333;
-    height: 122%;
+    background: #18212E;
 }
 
 #movie-list-form-items {
@@ -184,7 +183,7 @@ button.ui.inverted.orange.basic.button {
     top: 35px;
 }
 
-.ui.huge.black.label {
+.browsing.or.searching.label {
 	box-shadow: 4px 4px 4px rgba(0,0,0,.85)
 }
 
@@ -253,7 +252,7 @@ textarea.movie.list.description {
 }
 
 .everything {
-	background: #333;
+	background: #18212E;
 }
 
 .imdbRating {
@@ -339,7 +338,7 @@ textarea.movie.list.description {
 }
 
 #tomato-rating-icon {
-	width: 27px;	
+	width: 27px;
 }
 
 .ui.green.label {
@@ -423,6 +422,7 @@ textarea.movie.list.description {
 	margin-left: 10px;
 	width: 18rem;
 	box-shadow: 4px 4px 4px rgba(0,0,0,.85);
+	background: #212935;
 }
 
 #poster-and-overlay {
@@ -446,6 +446,10 @@ textarea.movie.list.description {
   right: 3px;
   border-radius: 0px;
   opacity: 0.7;
+}
+
+.ui.inverted.menu {
+	background: #212935;
 }
 
 #big-search {
@@ -592,7 +596,7 @@ textarea.movie.list.description {
 	width: 30%;
 	position: relative;
 	top: 10%;
-	border: 5px solid gray;    
+	border: 5px solid gray;
 }
 
 .or.button.divider {
@@ -602,8 +606,8 @@ textarea.movie.list.description {
 }
 
 #login-box:hover {
-	border: 5px solid #DAA520;    
-  transition: border 500ms ease-out; 
+	border: 5px solid #DAA520;
+  transition: border 500ms ease-out;
 }
 
 #imdb-icon {
@@ -767,6 +771,3 @@ textarea.movie.list.description {
     margin-bottom: 3%;
 	}
 }
-
-
-

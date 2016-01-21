@@ -27,6 +27,8 @@ var Sidebar = React.createClass ({
   },
 
   resetFilters: function () {
+    $('.genre.item').first().addClass('active').siblings('.item').removeClass('active');
+    $('.ui.huge.inverted.pagination.menu .item').first().addClass('active').siblings('.item').removeClass('active');
     FilterActions.resetFilters();
   },
 
