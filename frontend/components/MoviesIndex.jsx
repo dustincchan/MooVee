@@ -35,7 +35,7 @@ var MoviesIndex = React.createClass({
       <div id="movies-index-container" className="ui grid">
         <div id="MoviesIndex-and-Sidebar" className="two column row">
           <Sidebar className="four wide column"/>
-          <div className="twelve wide column" id="medium images">
+          <div className="twelve wide column" id="medium-images">
 
               <div id="movies-loading-dimmer"> className="ui segment">
                 <div className="ui active dimmer">
