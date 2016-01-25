@@ -22,7 +22,7 @@ var Pitch = React.createClass({
 						</div>
 					</div>
 
-					<div className="column" id="pitch-column"><div className="pitch column header">Share your inner movie guru</div><br/>
+					<div className="column" id="pitch-column"><div className="pitch column header">Be a movie guru</div><br/>
 						<div className="pitch column body">
 							Show off movies you've seen that others haven't. Or just keep track of your favorite movies.
 							You can easily create descriptive and colorful movie lists to share with friends and family. 
