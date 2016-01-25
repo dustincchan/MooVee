@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Coverflow = require('react-coverflow');
+var Pitch = require('./Pitch');
+var Tutorials = require('./Tutorials');
 
 var Welcome = React.createClass({
 	componentDidMount: function () {
@@ -44,17 +46,19 @@ var Welcome = React.createClass({
 					</div>
 					<div className="carousel container">
 						<div className="welcome carousel">
-							  <Coverflow width={"auto"} height={"500"}
-							    displayQuantityOfSide={2}
-							    navigation={false}
-							    enableScroll={true}
-							    >
-							    <img src='/carousel movielist.png' alt='Create Lists' url="/#/browse"/>
-							    <img src='./carousel browse.png' alt='Browse Movies' url="/#/browse" />
-							    <img src='carousel trailer.png' alt='Watch Trailers' url="/#/browse"/>
-							  </Coverflow>
+						  <Coverflow width={"auto"} height={"500"}
+						    displayQuantityOfSide={2}
+						    navigation={false}
+						    enableScroll={false}>
+						    <img src='/carousel movielist.png' alt='Create Lists' url="/#/browse"/>
+						    <img src='./carousel browse.png' alt='Browse Movies' url="/#/browse" />
+						    <img src='carousel trailer.png' alt='Watch Trailers' url="/#/browse"/>
+						  </Coverflow>
 						</div>
 					</div>
+					<Pitch/>
+					<div className="ui panorama test ad" data-text="HOW IT WORKS"></div>
+					<Tutorials/>
 			</div>
 		)
 

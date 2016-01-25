@@ -6,7 +6,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
-var Welcome = require('./components/Welcome');
+var Welcome = require('./components/splash/Welcome');
 
 //flux/stores
 var FilterStore = require('./stores/FilterStore');
