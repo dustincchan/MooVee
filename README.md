@@ -5,7 +5,7 @@ Live: www.mooveeme.com
 ## Minimum Viable Product
 
 MooVee.me is inspired by the beautiful movie-suggestion website Movieo.me.
-MooVee.me is built using Rails and React.js. Users are able to:
+MooVee.me is built using Rails and React.js and designed with Bootstrap and SemanticUI. Users are able to:
 
 - [ ] Create an account
 - [ ] Log in / Log out
